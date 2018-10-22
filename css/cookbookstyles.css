@@ -1,0 +1,27 @@
+body {
+  background-color: pink;
+}
+
+.container{
+  background-color: pink;
+}
+.fridgeId{
+  text-align: center;
+  color: white;
+  background-color: #b3d9ff;
+  border: 2px solid white;
+  border-radius: 10px;
+}
+.scrollBar{
+  text-align: right;
+    border: 2px solid black;
+    background-color: white;
+
+}
+.recipeId{
+  text-align: center;
+  color: white;
+  background-color: #b3d9ff;
+  border: 2px solid white;
+  margin-top: 20px;
+}
