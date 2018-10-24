@@ -5,11 +5,13 @@
     <div class="row">
       <div class="col-sm-12 fridgeId">
         <h1 class="fridgeLbl">WHATS IN YOUR FRIDGE</h1>
-          <div class="scrollBar">
-            <p>search</p>
-            <div class="recipeIcon">
-              <p>Proteins</p>
-            </div>
+          <div class="col-sm-8 recipeIcon">
+            <p>Proteins</p>
+            <p>spices</p>
+            <p>filler</p>
+          </div>
+          <div class="col-md-4 float-right fridgeContainer">
+            <p>In Your Fridge</p>
           </div>
       </div>
     </div>
