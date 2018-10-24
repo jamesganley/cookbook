@@ -1,5 +1,5 @@
 <?php include 'server.php'; ?>
-<?php include_once __DIR__ . '/../inc/header.php'; ?>
+<?php include 'mainheader.php'; ?>
 <body>
   <div class="header">
   	<h2>Register</h2>

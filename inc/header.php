@@ -19,7 +19,8 @@
 	<link rel="stylesheet" href="/css/owl.carousel.css"/>
 	<link rel="stylesheet" href="/css/animate.css"/>
 	<link rel="stylesheet" href="/css/style.css"/>
-	<?php  if (isset($_SESSION['username'])) : ?>
+	<link rel="stylesheet" href="/css/cookbookstyles.css"/>
+
 
 
 
@@ -33,20 +34,18 @@
 <body>
 
 	<!-- Page Preloder -->
-	<div id="preloder">
+	<!-- <div id="preloder">
 		<div class="loader"></div>
-	</div>
+	</div> -->
 
 	<!-- Header section -->
 	<header class="header-section">
 		<div class="header-top">
 			<div class="container">
-				<div class="header-social">
-						<p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
+				<div class="header-social"><?php  if (isset($_SESSION['username'])) : ?>
+						<p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p><?php endif ?>
 				</div>
 				<div class="user-panel">
-					<a href="#">Register</a> /
-					<a href="#">Login</a>
 				</div>
 			</div>
 		</div>
@@ -65,10 +64,10 @@
 					<li><a href="index.php">Home</a></li>
 					<li><a href="about.php">Features</a></li>
 					<li><a href="recipes.php">Receipies</a></li>
-					<li><a href="#">Reviews</a></li>
-					<li><a href="index.php?logout='1'" style="color: red;">logout</a></li>
+					<li><a href="#">Reviews</a></li><?php  if (isset($_SESSION['username'])) : ?>
+					<li><a href="index.php?logout='1'" style="color: red;">logout</a></li><?php endif ?>
 				</ul>
 			</div>
 		</div>
-	<?php endif ?>
+
 	</header>

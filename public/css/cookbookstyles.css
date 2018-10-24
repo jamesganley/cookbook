@@ -1,19 +1,12 @@
 
 /*Register and login style*/
-* {
-  margin: 0px;
-  padding: 0px;
-}
-body {
-  font-size: 120%;
-  background: #F8F8FF;
-}
+
 
 .header {
   width: 30%;
   margin: 50px auto 0px;
   color: white;
-  background: #5F9EA0;
+  background: pink;
   text-align: center;
   border: 1px solid #B0C4DE;
   border-bottom: none;
@@ -22,8 +15,8 @@ body {
 }
 form, .content {
   width: 30%;
-  margin: 0px auto;
-  padding: 20px;
+  margin: 2px auto;
+  padding: 10px;
   border: 1px solid #B0C4DE;
   background: white;
   border-radius: 0px 0px 10px 10px;
@@ -48,7 +41,7 @@ form, .content {
   padding: 10px;
   font-size: 15px;
   color: white;
-  background: #5F9EA0;
+  background: pink;
   border: none;
   border-radius: 5px;
 }

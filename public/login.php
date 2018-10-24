@@ -1,10 +1,5 @@
-<?php include('server.php') ?>
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Registration system PHP and MySQL</title>
-  <link rel="stylesheet" href="/css/cookbookstyles.css"/>
-</head>
+<?php include 'server.php'; ?>
+<?php include 'mainheader.php'; ?>
 <body>
   <div class="header">
   	<h2>Login</h2>
