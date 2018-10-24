@@ -19,6 +19,9 @@
 	<link rel="stylesheet" href="/css/owl.carousel.css"/>
 	<link rel="stylesheet" href="/css/animate.css"/>
 	<link rel="stylesheet" href="/css/style.css"/>
+	<?php  if (isset($_SESSION['username'])) : ?>
+
+
 
 
 	<!--[if lt IE 9]>
@@ -39,12 +42,7 @@
 		<div class="header-top">
 			<div class="container">
 				<div class="header-social">
-					<a href="#"><i class="fa fa-pinterest"></i></a>
-					<a href="#"><i class="fa fa-facebook"></i></a>
-					<a href="#"><i class="fa fa-twitter"></i></a>
-					<a href="#"><i class="fa fa-dribbble"></i></a>
-					<a href="#"><i class="fa fa-behance"></i></a>
-					<a href="#"><i class="fa fa-linkedin"></i></a>
+						<p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
 				</div>
 				<div class="user-panel">
 					<a href="#">Register</a> /
@@ -68,8 +66,9 @@
 					<li><a href="about.php">Features</a></li>
 					<li><a href="recipes.php">Receipies</a></li>
 					<li><a href="#">Reviews</a></li>
-					<li><a href="contact.php">Contact</a></li>
+					<li><a href="index.php?logout='1'" style="color: red;">logout</a></li>
 				</ul>
 			</div>
 		</div>
+	<?php endif ?>
 	</header>
