@@ -4,8 +4,8 @@ Example of how to query the database and ouput the result of the query
 -->
 <?php
 
-include './inc/header.php';
-require_once './database.php';
+// include __DIR__ . '/../inc/header.php';
+require_once __DIR__ .  '/../database.php';
 
 $users = $db->query("SELECT * FROM users")->fetchAll();
 
@@ -25,5 +25,5 @@ $users = $db->query("SELECT * FROM users")->fetchAll();
 </ul>
 
 <?php
-  include './inc/footer.php';
+  // include './inc/footer.php';
 ?>
