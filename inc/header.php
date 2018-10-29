@@ -19,6 +19,10 @@
 	<link rel="stylesheet" href="/css/owl.carousel.css"/>
 	<link rel="stylesheet" href="/css/animate.css"/>
 	<link rel="stylesheet" href="/css/style.css"/>
+	<link rel="stylesheet" href="/css/cookbookstyles.css"/>
+
+
+
 
 
 	<!--[if lt IE 9]>
@@ -30,25 +34,18 @@
 <body>
 
 	<!-- Page Preloder -->
-	<div id="preloder">
+	<!-- <div id="preloder">
 		<div class="loader"></div>
-	</div>
+	</div> -->
 
 	<!-- Header section -->
 	<header class="header-section">
 		<div class="header-top">
 			<div class="container">
-				<div class="header-social">
-					<a href="#"><i class="fa fa-pinterest"></i></a>
-					<a href="#"><i class="fa fa-facebook"></i></a>
-					<a href="#"><i class="fa fa-twitter"></i></a>
-					<a href="#"><i class="fa fa-dribbble"></i></a>
-					<a href="#"><i class="fa fa-behance"></i></a>
-					<a href="#"><i class="fa fa-linkedin"></i></a>
+				<div class="header-social"><?php  if (isset($_SESSION['username'])) : ?>
+						<p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p><?php endif ?>
 				</div>
 				<div class="user-panel">
-					<a href="#">Register</a> /
-					<a href="#">Login</a>
 				</div>
 			</div>
 		</div>
@@ -67,9 +64,10 @@
 					<li><a href="index.php">Home</a></li>
 					<li><a href="about.php">Features</a></li>
 					<li><a href="recipes.php">Receipies</a></li>
-					<li><a href="#">Reviews</a></li>
-					<li><a href="contact.php">Contact</a></li>
+					<li><a href="#">Reviews</a></li><?php  if (isset($_SESSION['username'])) : ?>
+					<li><a href="index.php?logout='1'" style="color: red;">logout</a></li><?php endif ?>
 				</ul>
 			</div>
 		</div>
+
 	</header>

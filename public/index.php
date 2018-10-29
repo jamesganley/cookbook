@@ -1,3 +1,16 @@
+<?php
+  session_start();
+
+  if (!isset($_SESSION['username'])) {
+  	$_SESSION['msg'] = "You must log in first";
+  	header('location: home.php');
+  }
+  if (isset($_GET['logout'])) {
+  	session_destroy();
+  	unset($_SESSION['username']);
+  	header("location: home.php");
+  }
+?>
 <?php include_once __DIR__ . '/../inc/header.php'; ?>
 
 	<!-- Header section end -->
