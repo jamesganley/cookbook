@@ -15,7 +15,7 @@ if (isset($_POST['reg_user'])) {
 	$username =mysqli_real_escape_string ($db, $_POST['username']);
 	$email = mysqli_real_escape_string($db, $_POST['email']);
 	$password_1 =mysqli_real_escape_string ($db, $_POST['password_1']);
-	$password_2 = mysqli_real_escape_string$db,( $_POST['password_2']);
+	$password_2 = mysqli_real_escape_string($db,$_POST['password_2']);
 	// form validation: ensure that the form is correctly filled
 	if (empty($username)) { array_push($errors, "Username is required"); }
 	if (empty($email)) { array_push($errors, "Email is required"); }
