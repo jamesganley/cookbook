@@ -68,12 +68,23 @@
 					<div class="post" style="margin-left: 0px;">
 					<div class="recipe">
 						<img src="<?php echo 'static/images/' . $post['image']; ?>" class="post_image" alt="">
+
 						<a href="single_post.php?post-slug=<?php echo $post['slug']; ?>">
 						<div class="recipe-info-warp">
 							<div class="recipe-info">
 								<h3><?php echo $post['title'] ?></h3>
 								<div class="info">
 									<span class="read_more">Read more...</span>
+
+								</div>
+								<div class="info">
+									<?php if (isset($post['topic']['name'])): ?>
+										<a
+								href="<?php echo 'filtered_posts.php?topic=' . $post['topic']['id'] ?>"
+								class="btn category">
+								<?php echo $post['topic']['name'] ?>
+								</a>
+								<?php endif ?>
 								</div>
 							</div>
 						</div>
