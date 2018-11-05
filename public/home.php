@@ -1,6 +1,10 @@
 
 <?php include 'mainheader.php'; ?>
+<?php include __DIR__ . "/../database.php"; ?>
+<?php include_once 'includes/public_functions.php' ?>
 
+<!-- Retrieve all posts from database  -->
+<?php $posts = getPublishedPosts(); ?>
 	<!-- Header section end -->
 
 
@@ -52,118 +56,42 @@
 			</div>
 		</div>
 	</section>
-	<!-- Add section end -->
-
-
-	<!-- Recipes section -->
+	<!--Community Recipes section -->
 	<section class="recipes-section spad pt-0">
 		<div class="container">
 			<div class="section-title">
 				<h2>Latest recipes</h2>
 			</div>
 			<div class="row">
+			<?php foreach ($posts as $post): ?>
 				<div class="col-lg-4 col-md-6">
+					<div class="post" style="margin-left: 0px;">
 					<div class="recipe">
-						<img src="img/recipes/1.jpg" alt="">
+						<img src="<?php echo 'static/images/' . $post['image']; ?>" class="post_image" alt="">
+
+						<a href="single_post.php?post-slug=<?php echo $post['slug']; ?>">
 						<div class="recipe-info-warp">
 							<div class="recipe-info">
-								<h3>Traditional Pizza</h3>
-								<div class="rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star is-fade"></i>
+								<h3><?php echo $post['title'] ?></h3>
+								<div class="info">
+									<span class="read_more">Read more...</span>
+
+								</div>
+								<div class="info">
+									<?php if (isset($post['topic']['name'])): ?>
+										<a
+								href="<?php echo 'filtered_posts.php?topic=' . $post['topic']['id'] ?>"
+								class="btn category">
+								<?php echo $post['topic']['name'] ?>
+								</a>
+								<?php endif ?>
 								</div>
 							</div>
 						</div>
+						</a>
 					</div>
 				</div>
-				<div class="col-lg-4 col-md-6 col-md-6">
-					<div class="recipe">
-						<img src="img/recipes/2.jpg" alt="">
-						<div class="recipe-info-warp">
-							<div class="recipe-info">
-								<h3>Italian home-made pasta</h3>
-								<div class="rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star is-fade"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="recipe">
-						<img src="img/recipes/3.jpg" alt="">
-						<div class="recipe-info-warp">
-							<div class="recipe-info">
-								<h3>Chesse Cake Tart</h3>
-								<div class="rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star is-fade"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="recipe">
-						<img src="img/recipes/4.jpg" alt="">
-						<div class="recipe-info-warp">
-							<div class="recipe-info">
-								<h3>Traditional Pizza</h3>
-								<div class="rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star is-fade"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="recipe">
-						<img src="img/recipes/5.jpg" alt="">
-						<div class="recipe-info-warp">
-							<div class="recipe-info">
-								<h3>Italian home-made pasta</h3>
-								<div class="rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star is-fade"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="recipe">
-						<img src="img/recipes/6.jpg" alt="">
-						<div class="recipe-info-warp">
-								<div class="recipe-info">
-								<h3>Chesse Cake Tart</h3>
-								<div class="rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star is-fade"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+				<?php endforeach ?>
 			</div>
 		</div>
 	</section>

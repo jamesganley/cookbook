@@ -12,10 +12,10 @@ $_SESSION['success'] = "";
 // REGISTER USER
 if (isset($_POST['reg_user'])) {
 	// receive all input values from the form
-	$username = ( $_POST['username']);
-	$email = ( $_POST['email']);
-	$password_1 = ( $_POST['password_1']);
-	$password_2 = ( $_POST['password_2']);
+	$username =mysqli_real_escape_string ($db, $_POST['username']);
+	$email = mysqli_real_escape_string($db, $_POST['email']);
+	$password_1 =mysqli_real_escape_string ($db, $_POST['password_1']);
+	$password_2 = mysqli_real_escape_string($db,$_POST['password_2']);
 	// form validation: ensure that the form is correctly filled
 	if (empty($username)) { array_push($errors, "Username is required"); }
 	if (empty($email)) { array_push($errors, "Email is required"); }
@@ -36,8 +36,8 @@ if (isset($_POST['reg_user'])) {
 }
 	// LOGIN USER
 	if (isset($_POST['login_user'])) {
-		$username = ($_POST['username']);
-		$password = ($_POST['password']);
+		$username = mysqli_real_escape_string($db,$_POST['username']);
+		$password = mysqli_real_escape_string($db,$_POST['password']);
 		if (empty($username)) {
 			array_push($errors, "Username is required");
 		}
