@@ -62,6 +62,7 @@
 			<div class="section-title">
 				<h2>Latest recipes</h2>
 			</div>
+			
 			<div class="row">
 			<?php foreach ($posts as $post): ?>
 				<div class="col-lg-4 col-md-6">

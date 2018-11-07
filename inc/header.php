@@ -2,7 +2,7 @@
 <!DOCTYPE php>
 <php lang="en">
 <head>
-	<title>Food Blog - Web Template</title>
+	<title>CookBook</title>
 	<meta charset="UTF-8">
 	<meta name="description" content="Food Blog Web Template">
 	<meta name="keywords" content="food, unica, creative, html">
@@ -52,7 +52,7 @@
 		<div class="header-bottom">
 			<div class="container">
 				<a href="index.php" class="site-logo">
-					<img src="img/logo.png" alt="">
+					<img src="img/logo.jpg" alt="">
 				</a>
 				<div class="nav-switch">
 					<i class="fa fa-bars"></i>

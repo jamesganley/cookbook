@@ -18,7 +18,7 @@
     <div class="row">
       <div class="col-lg-6">
         <div class="footer-logo">
-          <img src="img/logo.png" alt="">
+          <img src="img/logo.jpg" alt="">
         </div>
         <div class="footer-social">
           <a href="#"><i class="fa fa-pinterest"></i></a>
