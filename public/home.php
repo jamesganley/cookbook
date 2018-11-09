@@ -62,7 +62,7 @@
 			<div class="section-title">
 				<h2>Latest recipes</h2>
 			</div>
-			
+
 			<div class="row">
 			<?php foreach ($posts as $post): ?>
 				<div class="col-lg-4 col-md-6">
@@ -77,15 +77,6 @@
 								<div class="info">
 									<span class="read_more">Read more...</span>
 
-								</div>
-								<div class="info">
-									<?php if (isset($post['topic']['name'])): ?>
-										<a
-								href="<?php echo 'filtered_posts.php?topic=' . $post['topic']['id'] ?>"
-								class="btn category">
-								<?php echo $post['topic']['name'] ?>
-								</a>
-								<?php endif ?>
 								</div>
 							</div>
 						</div>

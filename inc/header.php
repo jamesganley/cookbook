@@ -43,7 +43,7 @@
 		<div class="header-top">
 			<div class="container">
 				<div class="header-social"><?php  if (isset($_SESSION['username'])) : ?>
-						<p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p><?php endif ?>
+						<p  style="color: white;">Welcome <strong><?php echo $_SESSION['username']; ?></strong></p><?php endif ?>
 				</div>
 				<div class="user-panel">
 				</div>
@@ -57,15 +57,12 @@
 				<div class="nav-switch">
 					<i class="fa fa-bars"></i>
 				</div>
-				<div class="header-search">
-					<a href="#"><i class="fa fa-search"></i></a>
-				</div>
 				<ul class="main-menu">
 					<li><a href="index.php">Home</a></li>
 					<li><a href="about.php">Features</a></li>
 					<li><a href="recipes.php">Receipies</a></li>
-					<li><a href="#">Reviews</a></li><?php  if (isset($_SESSION['username'])) : ?>
-					<li><a href="index.php?logout='1'" style="color: red;">logout</a></li><?php endif ?>
+					<li><a href="topics.php">Your Recipes</a></li><?php  if (isset($_SESSION['username'])) : ?>
+					<li><a href="index.php?logout='1'" style="color: red;">Logout</a></li><?php endif ?>
 				</ul>
 			</div>
 		</div>
