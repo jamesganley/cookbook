@@ -55,15 +55,7 @@
 				<a href="index.php" class="site-logo">
 					<img src="img/logo.jpg" alt="">
 				</a>
-				<div class="nav-switch">
-					<i class="fa fa-bars"></i>
-				</div>
-				<div class="header-search">
-					<a href="#"><i class="fa fa-search"></i></a>
-				</div>
-				<ul class="main-menu">
-					<li><a href="index.php">Home</a></li>
-				</ul>
+
 			</div>
 		</div>
 
