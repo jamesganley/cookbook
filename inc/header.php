@@ -61,7 +61,7 @@
 					<li><a href="index.php">Home</a></li>
 					<li><a href="about.php">Features</a></li>
 					<li><a href="recipes.php">Receipies</a></li>
-					<li><a href="topics.php">Your Recipes</a></li><?php  if (isset($_SESSION['username'])) : ?>
+					<li><a href="posts.php">Your Recipes</a></li><?php  if (isset($_SESSION['username'])) : ?>
 					<li><a href="index.php?logout='1'" style="color: red;">Logout</a></li><?php endif ?>
 				</ul>
 			</div>

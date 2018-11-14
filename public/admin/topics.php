@@ -1,32 +1,23 @@
-<?php
-  session_start();
-
-  if (!isset($_SESSION['username'])) {
-  	$_SESSION['msg'] = "You must log in first";
-  	header('location: home.php');
-  }
-  if (isset($_GET['logout'])) {
-  	session_destroy();
-  	unset($_SESSION['username']);
-  	header("location: home.php");
-  }
-?>
-<?php include_once __DIR__ . '/../inc/header.php'; ?>
-<?php include __DIR__ . "/../database.php"; ?>
-<?php include_once 'includes/admin_functions.php' ?>
+<?php  include('../config.php'); ?>
+<?php  include(ROOT_PATH . '/admin/includes/admin_functions.php'); ?>
+<?php include(ROOT_PATH . '/admin/includes/head_section.php'); ?>
+<!-- Get all topics from DB -->
 <?php $topics = getAllTopics();	?>
-
+	<title>Admin | Manage Topics</title>
+</head>
 <body>
-	<div class="container con1 content">
+	<!-- admin navbar -->
+	<?php include(ROOT_PATH . '/admin/includes/navbar.php') ?>
+	<div class="container content">
 		<!-- Left side menu -->
-		<?php include 'includes/menu.php' ?>
+		<?php include(ROOT_PATH . '/admin/includes/menu.php') ?>
 
 		<!-- Middle form - to create and edit -->
 		<div class="action">
 			<h1 class="page-title">Create/Edit Topics</h1>
-			<form method="post" action="<?php echo 'topics.php'; ?>" >
+			<form method="post" action="<?php echo BASE_URL . 'admin/topics.php'; ?>" >
 				<!-- validation errors for the form -->
-				<?php include 'errors.php'?>
+				<?php include(ROOT_PATH . '/includes/errors.php') ?>
 				<!-- if editing topic, the id is required to identify that topic -->
 				<?php if ($isEditingTopic === true): ?>
 					<input type="hidden" name="topic_id" value="<?php echo $topic_id; ?>">
@@ -45,7 +36,7 @@
 		<!-- Display records from DB-->
 		<div class="table-div">
 			<!-- Display notification message -->
-			<?php include 'includes/messages.php'?>
+			<?php include(ROOT_PATH . '/includes/messages.php') ?>
 			<?php if (empty($topics)): ?>
 				<h1>No topics in the database.</h1>
 			<?php else: ?>
@@ -78,6 +69,5 @@
 		</div>
 		<!-- // Display records from DB -->
 	</div>
-
 </body>
 </html>
