@@ -21,8 +21,8 @@
 ?>
 
 <body>
-
 	<div class="container con1 content" >
+
 		<!-- Page wrapper -->
 		<div class="post-wrapper">
 			<!-- full post div -->
