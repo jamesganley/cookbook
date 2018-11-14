@@ -6,7 +6,6 @@
 		<div class="card-content">
 			<a href="<?php echo 'create_post.php' ?>">Create Posts</a>
 			<a href="<?php echo 'posts.php' ?>">Manage Posts</a>
-			<a href="<?php echo 'topics.php' ?>">Manage Topics</a>
 		</div>
 	</div>
 </div>

@@ -46,7 +46,7 @@
 							<td><?php echo $post['author']; ?></td>
 							<td>
 								<a 	target="_blank"
-								href="<?php echo BASE_URL . 'single_post.php?post-slug=' . $post['slug'] ?>">
+								href="<?php echo 'single_post.php?post-slug=' . $post['slug'] ?>">
 									<?php echo $post['title']; ?>
 								</a>
 							</td>
