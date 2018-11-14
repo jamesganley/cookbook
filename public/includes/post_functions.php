@@ -17,16 +17,21 @@ function getAllPosts()
 {
 	global $db;
 
-
 	// Admin can view all posts
 	// Author can only view their posts
 	$user_id = $_SESSION['user_id'];
 
 	$sql = "SELECT * FROM posts WHERE user_id=${user_id}";
 	$result = mysqli_query($db, $sql);
+
+	if (!$result) {
+		return false;
+	}
+
 	$posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 	$final_posts = array();
+
 	foreach ($posts as $post) {
 		$post['author'] = getPostAuthorById($post['user_id']);
 		array_push($final_posts, $post);
@@ -75,7 +80,7 @@ function createPost($request_values)
 	{
 		global $db, $errors, $title, $featured_image, $topic_id, $body, $published;
 
-		$user_id = $_SESSION["user_id"];
+		$user_id = $_SESSION['user_id'];
 		$title = esc($request_values['title']);
 		$body = htmlentities(esc($request_values['body']));
 
@@ -92,12 +97,13 @@ function createPost($request_values)
 		if (empty($title)) { array_push($errors, "Post title is required"); }
 		if (empty($body)) { array_push($errors, "Post body is required"); }
 		if (empty($topic_id)) { array_push($errors, "Post topic is required"); }
-		die(__DIR__ . "/public");
+
 		// Get image name
 	  	$featured_image = $_FILES['featured_image']['name'];
 	  	if (empty($featured_image)) { array_push($errors, "Featured image is required"); }
 	  	// image file directory
-	  	$target = __DIR__ . "/img" . basename($featured_image);
+	  	$target = $_SERVER["DOCUMENT_ROOT"] . "/static/images/" . basename($featured_image);
+
 	  	if (!move_uploaded_file($_FILES['featured_image']['tmp_name'], $target)) {
 	  		array_push($errors, "Failed to upload image. Please check file settings for your server");
 	  	}
@@ -110,8 +116,16 @@ function createPost($request_values)
 		}
 		// create post if there are no errors in the form
 		if (count($errors) == 0) {
-			$query = "INSERT INTO posts (user_id, title, slug, image, body, published, created_at, updated_at) VALUES((int)$user_id, '$title', '$post_slug', '$featured_image', '$body', $published, now(), now())";
+
+			$now = date('Y/m/d');
+			$user_id = $_SESSION["user_id"];
+			var_dump($_SESSION);
+			$query = "INSERT INTO posts (user_id, title, slug, image, body, published, created_at, updated_at)
+			VALUES('${user_id}', '${title}', '${post_slug}', '${featured_image}', '${body}', '${published}', '${now}', '${now}')";
+
+			echo $query;
 			if(mysqli_query($db, $query)){ // if post created successfully
+				echo "creating post";
 				$inserted_post_id = mysqli_insert_id($db);
 				// create relationship between post and topic
 				$sql = "INSERT INTO post_topic (post_id, topic_id) VALUES($inserted_post_id, $topic_id)";
@@ -122,6 +136,7 @@ function createPost($request_values)
 				exit(0);
 			}
 		}
+		var_dump($errors);
 	}
 
 	/* * * * * * * * * * * * * * * * * * * * *
@@ -161,7 +176,7 @@ function createPost($request_values)
 			// Get image name
 		  	$featured_image = $_FILES['featured_image']['name'];
 		  	// image file directory
-		  	$target = "img" . basename($featured_image);
+		  	$target =  $_SERVER["DOCUMENT_ROOT"] . "/static/images/" . basename($featured_image);
 		  	if (!move_uploaded_file($_FILES['featured_image']['tmp_name'], $target)) {
 		  		array_push($errors, "Failed to upload image. Please check file settings for your server");
 		  	}

@@ -33,9 +33,8 @@
 				<table class="table">
 						<thead>
 						<th>N</th>
-						<th>Title</th>
 						<th>Author</th>
-						<th>Views</th>
+						<th>Title</th>
 						<th><small>Publish</small></th>
 						<th><small>Edit</small></th>
 						<th><small>Delete</small></th>
@@ -51,7 +50,6 @@
 									<?php echo $post['title']; ?>
 								</a>
 							</td>
-							<td><?php echo $post['views']; ?></td>
 
 
 								<td>

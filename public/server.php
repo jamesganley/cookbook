@@ -1,4 +1,4 @@
-<?php
+ <?php
 //Reference-https://codewithawa.com/posts/complete-user-registration-system-using-php-and-mysql-database
 //Youtube-Tutorial-https://www.youtube.com/watch?v=C--mu07uhQw
 session_start();// Cool
@@ -51,10 +51,12 @@ if (isset($_POST['login_user'])) {
 				$password = md5($password);
 				$query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
 				$results = $db->query($query);
-				$users = mysqli_fetch_all($results, MYSQLI_ASSOC);
-				$user = $users[0];
 
-				if (count($results) == 1)  {
+				$users = mysqli_fetch_all($results, MYSQLI_ASSOC);
+
+
+				if (count($users) == 1)  {
+					$user = $users[0];
 					$_SESSION['username'] = $username;
 					$_SESSION['user_id'] = $user["id"];
 					$_SESSION['success'] = "You are now logged in";
