@@ -44,6 +44,10 @@
 			<div class="container">
 				<div class="header-social"><?php  if (isset($_SESSION['username'])) : ?>
 						<p  style="color: white;">Welcome <strong><?php echo $_SESSION['username']; ?></strong></p><?php endif ?>
+						<div class="logout-float">
+							<?php  if (isset($_SESSION['username'])) : ?>
+							<li><a href="index.php?logout='1'" style="align-items: right;color: white;">Logout</a></li><?php endif ?>
+						</div>
 				</div>
 				<div class="user-panel">
 				</div>
@@ -59,10 +63,10 @@
 				</div>
 				<ul class="main-menu">
 					<li><a href="index.php">Home</a></li>
-					<li><a href="about.php">Features</a></li>
-					<li><a href="recipes.php">Receipies</a></li>
-					<li><a href="topics.php">Your Recipes</a></li><?php  if (isset($_SESSION['username'])) : ?>
-					<li><a href="index.php?logout='1'" style="color: red;">Logout</a></li><?php endif ?>
+					<li><a href="fridge.php">Whats in my Fridge</a></li>
+					<li><a href="recipe.php">Find a Recipes</a></li>
+					<li><a href="feed.php">Feed</a></li>
+					<li><a href="topics.php">Your Account</a></li>
 				</ul>
 			</div>
 		</div>
