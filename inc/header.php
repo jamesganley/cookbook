@@ -59,9 +59,9 @@
 				</div>
 				<ul class="main-menu">
 					<li><a href="index.php">Home</a></li>
-					<li><a href="about.php">Features</a></li>
-					<li><a href="recipes.php">Receipies</a></li>
-					<li><a href="dashboard.php">Your Recipes</a></li><?php  if (isset($_SESSION['username'])) : ?>
+					<li><a href="about.php">Whats in my Fridge</a></li>
+					<li><a href="recipes.php">Find a Recipe</a></li>
+					<li><a href="dashboard.php">Feed</a></li><?php  if (isset($_SESSION['username'])) : ?>
 					<li><a href="index.php?logout='1'" style="color: red;">Logout</a></li><?php endif ?>
 				</ul>
 			</div>
