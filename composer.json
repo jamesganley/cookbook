@@ -1,0 +1,10 @@
+{
+    "name": "ash/cookbook",
+    "authors": [
+        {
+            "name": "Ashish",
+            "email": "blr.ashu@gmail.com"
+        }
+    ],
+    "require": {}
+}
