@@ -1,14 +1,14 @@
 <?php
 // Code from
 // https://phpdelusions.net/pdo
-
-$host = 'db4free.net';
-$dbname   = 'cookbook';
+//mysql://b1c0ec52c43297:c7b13df7@eu-cdbr-west-02.cleardb.net/heroku_747dca5e35081c0?reconnect=true
+$host = 'eu-cdbr-west-02.cleardb.net';
+$dbname   = 'heroku_747dca5e35081c0';
 $user = 'b1c0ec52c43297';
 $pass = 'c7b13df7';
 $charset = 'utf8mb4';
 
-$db = mysqli_connect("mysql://b1c0ec52c43297:c7b13df7@eu-cdbr-west-02.cleardb.net/heroku_747dca5e35081c0?reconnect=true");
+$db = mysqli_connect($host, $user, $pass, $dbname);
 
 	if (!$db) {
 		die("Error connecting to database: " . mysqli_connect_error());
