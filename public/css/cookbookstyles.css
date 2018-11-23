@@ -201,3 +201,8 @@ th { text-align: center;}
 }
 .error {color: #a94442; background: #f2dede; border: 1px solid #a94442; margin-bottom: 20px; }
 .validation_errors p {text-align: left;margin-left: 10px;}
+
+.feed{
+  height: 100px;
+  width: 100px;
+}

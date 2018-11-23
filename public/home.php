@@ -63,9 +63,8 @@
 				<h2>Latest recipes</h2>
 			</div>
 
-			<div class="row">
 			<?php foreach ($posts as $post): ?>
-				<div class="col-lg-4 col-md-6">
+				<div class="feed">
 					<div class="post" style="margin-left: 0px;">
 					<div class="recipe">
 						<img src="<?php echo 'static/images/' . $post['image']; ?>" class="post_image" alt="">
@@ -85,7 +84,6 @@
 				</div>
 				<?php endforeach ?>
 			</div>
-		</div>
 	</section>
 	<!-- Recipes section end -->
 
