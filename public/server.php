@@ -30,7 +30,6 @@ if (isset($_POST['reg_user'])) {
 					VALUES('$username', '$email', '$password')";
 		$db->query($query);
 		$reg_user_id = mysqli_insert_id($db);
-		$_SESSION['user'] = getUserById($reg_user_id);
 		$_SESSION['username'] = $username;
 		$_SESSION['success'] = "You are now logged in";
 		header('location: index.php');
