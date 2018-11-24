@@ -17,7 +17,6 @@
 	<?php include 'includes/public_functions.php' ?>
   <?php $posts = getPublishedPosts(); ?>
 <body>
-  <div class="container con1 content">
     <section class="recipes-section spad pt-0">
   		<div class="container">
   			<div class="section-title">
@@ -46,6 +45,5 @@
   				<?php endforeach ?>
   			</div>
   	</section>
-</div>
 </body>
 </html>
