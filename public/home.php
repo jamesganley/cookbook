@@ -64,7 +64,7 @@
 			</div>
 
 			<?php foreach ($posts as $post): ?>
-				<div class="feed">
+				<div class>
 					<div class="post" style="margin-left: 0px;">
 					<div class="recipe">
 						<img src="<?php echo 'static/images/' . $post['image']; ?>" class="post_image" alt="">
