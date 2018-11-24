@@ -19,8 +19,7 @@
 <!-- Get all topics -->
 <?php $topics = getAllTopics();	?>
 	<div class="container con1 content">
-		<!-- Left side menu -->		<?php include 'includes/menu.php' ?>
->
+
 
 		<!-- Middle form - to create and edit  -->
 		<div class="action create-post-div">

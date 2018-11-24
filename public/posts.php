@@ -19,8 +19,6 @@
 <?php $posts = getAllPosts(); ?>
 <body>
 	<div class="container con1 content">
-		<!-- Left side menu -->
-		<?php include 'includes/menu.php' ?>
 
 		<!-- Display records from DB-->
 		<div class="table-div"  style="width: 80%;">

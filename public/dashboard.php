@@ -18,30 +18,34 @@
   <?php $posts = getPublishedPosts(); ?>
 <body>
   <div class="container con1 content">
-		<!-- Left side menu -->
-		<?php include 'includes/menu.php' ?>
-  <section class="recipes-section spad pt-0">
-    <div class="container">
-      <div class="section-title">
-        <h2>Recent Articles</h2>
-      </div>
-    <!-- more content still to come here ... -->
-      <?php foreach ($posts as $post): ?>
-      <div class="post" style="margin-left: 0px;">
-      <img src="<?php echo 'static/images/' . $post['image']; ?>" class="post_image" alt="">
-        <a href="single_post.php?post-slug=<?php echo $post['slug']; ?>">
-          <div class="post_info">
-            <h3><?php echo $post['title'] ?></h3>
-            <div class="info">
-              <span><?php echo date("F j, Y ", strtotime($post["created_at"])); ?></span>
-              <span class="read_more">Read more...</span>
-            </div>
-          </div>
-        </a>
-      </div>
-      <?php endforeach ?>
-      </div>
-  </section>
+    <section class="recipes-section spad pt-0">
+  		<div class="container">
+  			<div class="section-title">
+  				<h2>Latest recipes</h2>
+  			</div>
+
+  			<?php foreach ($posts as $post): ?>
+  				<div class>
+  					<div class="post" style="margin-left: 0px;">
+  					<div class="recipe">
+  						<img src="<?php echo 'static/images/' . $post['image']; ?>" class="post_image" alt="">
+
+  						<a href="single_post.php?post-slug=<?php echo $post['slug']; ?>">
+  						<div class="recipe-info-warp">
+  							<div class="recipe-info">
+  								<h3><?php echo $post['title'] ?></h3>
+  								<div class="info">
+  									<span class="read_more">Read more...</span>
+
+  								</div>
+  							</div>
+  						</div>
+  						</a>
+  					</div>
+  				</div>
+  				<?php endforeach ?>
+  			</div>
+  	</section>
 </div>
 </body>
 </html>
