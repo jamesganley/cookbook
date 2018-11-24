@@ -18,12 +18,11 @@
 
 <!-- Get all topics -->
 <?php $topics = getAllTopics();	?>
-	<div class="container con1 content">
 
 
 		<!-- Middle form - to create and edit  -->
 		<div class="action create-post-div">
-			<h1 class="page-title">Create/Edit Post</h1>
+			<center><h1 class="page-title">Create/Edit Post</h1></center>
 			<form method="post" enctype="multipart/form-data" action="<?php echo 'create_post.php'; ?>" >
 				<!-- validation errors for the form -->
   			<?php include 'errors.php'?>
@@ -68,8 +67,6 @@
 
 			</form>
 		</div>
-		<!-- // Middle form - to create and edit -->
-	</div>
 </body>
 </html>
 
