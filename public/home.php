@@ -62,9 +62,10 @@
 			<div class="section-title">
 				<h2>Latest recipes</h2>
 			</div>
-
+<div class="row">
 			<?php foreach ($posts as $post): ?>
-				<div class="parent">
+
+					<div class="col-md-6">
 					<div class="post" style="margin-left: 0px;">
 					<div class="recipe">
 						<img src="<?php echo 'static/images/' . $post['image']; ?>" class="post_image" alt="">
@@ -82,10 +83,9 @@
 						</a>
 					</div>
 				</div>
-
 			</div>
-			<div class="spacing"></div>
 			<?php endforeach ?>
+			</div>
 </div>
 	<!-- Recipes section end -->
 

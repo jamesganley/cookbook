@@ -190,8 +190,6 @@ function createPost($request_values)
 			        		die('Error:2' . $e->getMessage());
 			        	}
 			        	echo 'Done uploading ';
-								$query = "UPDATE posts SET image ='${keyName}' WHERE user_id = '${user_id}'";
-								$db->query($query);
 		        	// Now that you have it working, I recommend adding some checks on the files.
 		        	// Example: Max size, allowed file types, etc.
 	}

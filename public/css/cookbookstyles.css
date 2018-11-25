@@ -207,8 +207,8 @@ th { text-align: center;}
   width: 100px;
 }
 .parent {
-   width: 700px; /* I took the width from your post and placed it in css */
-   height: 500px;
+   width: 100%; /* I took the width from your post and placed it in css */
+   height: 700px;
 
 }
 .spacing{
