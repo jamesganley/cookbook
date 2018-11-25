@@ -206,3 +206,17 @@ th { text-align: center;}
   height: 100px;
   width: 100px;
 }
+.parent {
+   width: 700px; /* I took the width from your post and placed it in css */
+   height: 500px;
+
+}
+.spacing{
+  height: 50px;
+}
+
+/* This will style any <img> element in .parent div */
+.parent img {
+   height: 100%;
+   width: 100%;
+}

@@ -57,14 +57,14 @@
 		</div>
 	</section>
 	<!--Community Recipes section -->
-	<section class="recipes-section spad pt-0">
+
 		<div class="container">
 			<div class="section-title">
 				<h2>Latest recipes</h2>
 			</div>
 
 			<?php foreach ($posts as $post): ?>
-				<div class>
+				<div class="parent">
 					<div class="post" style="margin-left: 0px;">
 					<div class="recipe">
 						<img src="<?php echo 'static/images/' . $post['image']; ?>" class="post_image" alt="">
@@ -82,9 +82,11 @@
 						</a>
 					</div>
 				</div>
-				<?php endforeach ?>
+
 			</div>
-	</section>
+			<div class="spacing"></div>
+			<?php endforeach ?>
+</div>
 	<!-- Recipes section end -->
 
 

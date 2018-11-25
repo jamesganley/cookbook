@@ -17,33 +17,34 @@
 	<?php include 'includes/public_functions.php' ?>
   <?php $posts = getPublishedPosts(); ?>
 <body>
-    <section class="recipes-section spad pt-0">
-  		<div class="container">
-  			<div class="section-title">
-  				<h2>Latest recipes</h2>
-  			</div>
+  <div class="container">
+    <div class="section-title">
+      <h2>Latest recipes</h2>
+    </div>
 
-  			<?php foreach ($posts as $post): ?>
-  				<div class>
-  					<div class="post" style="margin-left: 0px;">
-  					<div class="recipe">
-  						<img src="<?php echo 'static/images/' . $post['image']; ?>" class="post_image" alt="">
+    <?php foreach ($posts as $post): ?>
+      <div class="parent">
+        <div class="post" style="margin-left: 0px;">
+        <div class="recipe">
+          <img src="<?php echo 'static/images/' . $post['image']; ?>" class="post_image" alt="">
 
-  						<a href="single_post.php?post-slug=<?php echo $post['slug']; ?>">
-  						<div class="recipe-info-warp">
-  							<div class="recipe-info">
-  								<h3><?php echo $post['title'] ?></h3>
-  								<div class="info">
-  									<span class="read_more">Read more...</span>
+          <a href="single_post.php?post-slug=<?php echo $post['slug']; ?>">
+          <div class="recipe-info-warp">
+            <div class="recipe-info">
+              <h3><?php echo $post['title'] ?></h3>
+              <div class="info">
+                <span class="read_more">Read more...</span>
 
-  								</div>
-  							</div>
-  						</div>
-  						</a>
-  					</div>
-  				</div>
-  				<?php endforeach ?>
-  			</div>
-  	</section>
+              </div>
+            </div>
+          </div>
+          </a>
+        </div>
+      </div>
+
+    </div>
+    <div class="spacing"></div>
+    <?php endforeach ?>
+</div>
 </body>
 </html>
