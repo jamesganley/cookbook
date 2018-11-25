@@ -245,7 +245,7 @@ function createPost($request_values)
 
 		// register topic if there are no errors in the form
 		if (count($errors) == 0) {
-			$query = "UPDATE posts SET title='$title', slug='$post_slug', views=0, image='$featured_image', body='$body', published=$published, updated_at=now() WHERE id=$post_id";
+			$query = "UPDATE posts SET title='$title', slug='$post_slug', image='$featured_image', body='$body', published=$published, updated_at=now() WHERE id=$post_id";
 			// attach topic to post on post_topic table
 			if(mysqli_query($db, $query)){ // if post created successfully
 				if (isset($topic_id)) {
