@@ -9,7 +9,7 @@
 ?>
 
 <body>
-	<div class="container con1 content" >
+	<div class="container content" >
 
 		<!-- Page wrapper -->
 		<div class="post-wrapper">
@@ -21,6 +21,9 @@
 				<h2 class="post-title"><?php echo $post['title']; ?></h2>
 				<div class="post-body-div">
 					<img src="<?php echo 'static/images/' . $post['image']; ?>" class="post_image" alt="">
+
+				</div>
+				<div class="container">
 					<?php echo html_entity_decode($post['body']); ?>
 				</div>
 			<?php endif ?>
