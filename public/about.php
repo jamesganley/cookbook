@@ -1,16 +1,3 @@
-<<?php
-  session_start();
-
-  if (!isset($_SESSION['username'])) {
-  	$_SESSION['msg'] = "You must log in first";
-  	header('location: home.php');
-  }
-  if (isset($_GET['logout'])) {
-  	session_destroy();
-  	unset($_SESSION['username']);
-  	header("location: home.php");
-  }
-?>
 <?php include_once __DIR__ . '/../inc/header.php'; ?>
 
 	<!-- Header section end -->
@@ -26,7 +13,7 @@
 	<!-- Hero section -->
 	<section class="page-top-section set-bg" data-setbg="img/page-top-bg.jpg">
 		<div class="container">
-			<h2>About us</h2>
+			<h2>What's in my Fridge</h2>
 		</div>
 	</section>
 	<!-- Hero section end -->
@@ -59,22 +46,7 @@
 	<!-- Search section end -->
 
 
-	<!-- About section -->
-	<section class="about-section spad">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6 about-text">
-					<h2>About our great team</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec varius dui. Suspendisse potenti. Vestibulum ac pellentesque tortor. Aenean congue sed metus in iaculis. Cras a tortor enim. Phasellus posuere vestibulum ipsum, eget lobortis purus. Orci varius natoque penatibus et magni. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec varius dui. Suspendisse potenti. Vestibulum ac pellentesque tortor. Aenean congue sed metus in iaculis. Cras a tortor enim. Phasellus posuere vestibulum ipsum, eget lobortis purus. Orci varius natoque penatibus et magni.</p>
-					<div class="site-btn">Read more</div>
-				</div>
-				<div class="col-lg-6">
-					<img src="img/about.jpg" alt="">
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- About section end -->
+
 
 
 	<!-- Facts section -->
@@ -117,77 +89,7 @@
 	<!-- Facts section end -->
 
 
-	<!-- Newsletter section -->
-	<section class="newsletter-section spad">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6 nl-text">
-					<h2>Subscribe to our newsletter</h2>
-					<form class="newsletter-form">
-						<input type="text" placeholder="Your E-mail">
-						<button class="site-btn">Subscribe</button>
-					</form>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec varius dui. Suspendisse potenti. Vestibulum ac pellentesque tortor. Aenean congue sed metus in iaculis. Cras a tortor enim. </p>
-				</div>
-				<div class="col-lg-6">
-					<img class="nl-sp-img" src="img/newslatter.png" alt="">
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- Newsletter section end -->
-
-
-	<!-- Gallery section -->
-	<div class="gallery">
-		<div class="gallery-slider owl-carousel">
-			<div class="gs-item set-bg" data-setbg="img/instagram/1.jpg"></div>
-			<div class="gs-item set-bg" data-setbg="img/instagram/2.jpg"></div>
-			<div class="gs-item set-bg" data-setbg="img/instagram/3.jpg"></div>
-			<div class="gs-item set-bg" data-setbg="img/instagram/4.jpg"></div>
-			<div class="gs-item set-bg" data-setbg="img/instagram/5.jpg"></div>
-			<div class="gs-item set-bg" data-setbg="img/instagram/6.jpg"></div>
-		</div>
-	</div>
-	<!-- Gallery section end -->
-
-
-	<!-- Footer section  -->
-	<footer class="footer-section set-bg" data-setbg="img/footer-bg.jpg">
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-lg-6">
-					<div class="footer-logo">
-						<img src="img/logo.png" alt="">
-					</div>
-					<div class="footer-social">
-						<a href="#"><i class="fa fa-pinterest"></i></a>
-						<a href="#"><i class="fa fa-facebook"></i></a>
-						<a href="#"><i class="fa fa-twitter"></i></a>
-						<a href="#"><i class="fa fa-dribbble"></i></a>
-						<a href="#"><i class="fa fa-behance"></i></a>
-						<a href="#"><i class="fa fa-linkedin"></i></a>
-					</div>
-				</div>
-				<div class="col-lg-6 text-lg-right">
-					<ul class="footer-menu">
-						<li><a href="#">Home</a></li>
-						<li><a href="#">Features</a></li>
-						<li><a href="#">Receipies</a></li>
-						<li><a href="#">Reviews</a></li>
-						<li><a href="#">Contact</a></li>
-					</ul>
-					<p class="copyright"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-</p>
-				</div>
-			</div>
-		</div>
-	</footer>
-	<!-- Footer section end -->
-
-
+  <?php include_once __DIR__ . "/../inc/footer.php" ?>
 
 	<!--====== Javascripts & Jquery ======-->
 	<script src="js/jquery-3.2.1.min.js"></script>
