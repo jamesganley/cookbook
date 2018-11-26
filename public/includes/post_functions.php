@@ -135,10 +135,9 @@ function createPost($request_values)
 				exit(0);
 			}
 		}
-		var_dump($errors);
 	}
 
-	
+
 
 	/* * * * * * * * * * * * * * * * * * * * *
 	* - Takes post id as parameter
