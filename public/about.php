@@ -11,9 +11,30 @@
   	header("location: home.php");
   }
 ?>
+
 <?php include_once __DIR__ . '/../inc/header.php';?>
 <?php include '../database.php';?>
+<?php include_once 'uploadfunction.php' ?>
+<?php
+	if (isset($_GET['edit'])) {
+    global $db;
+		$id = $_GET['edit'];
+		$update = true;
 
+		$record = mysqli_query($db, "SELECT * FROM crud WHERE id=$id");
+
+		if (count($record) == 1 ) {
+			$n = mysqli_fetch_array($record);
+			$item = $n['item'];
+			$quantity = $n['quantity'];
+      $expiry = $n['expiry'];
+		}
+	}
+  if (isset($_GET['del'])) {
+  $id = $_GET['del'];
+  mysqli_query($db, "DELETE FROM crud WHERE id=$id");
+  }
+?>
 	<!-- Header section end -->
 <body>
 	<!-- Page Preloder -->
@@ -31,7 +52,33 @@
 		</div>
 	</section>
 	<!-- Hero section end -->
+  <?php $user_id = $_SESSION['user_id']; $results = mysqli_query($db, "SELECT * FROM crud WHERE user_id=${user_id}"); ?>
 
+    <table>
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Quantity</th>
+          <th>Expire Date</th>
+          <th colspan="2">Action</th>
+        </tr>
+      </thead>
+
+      <?php while ($row = mysqli_fetch_array($results)) { ?>
+        <tr>
+          <td><?php echo $row['item']; ?></td>
+          <td><?php echo $row['quantity']; ?></td>
+          <td><?php echo $row['expiry']; ?></td>
+
+          <td>
+            <a href="about.php?edit=<?php echo $row['id']; ?>" class="edit_btn" >Edit</a>
+          </td>
+          <td>
+            <a href="about.php?del=<?php echo $row['id']; ?>" class="del_btn">Delete</a>
+          </td>
+        </tr>
+      <?php } ?>
+    </table>
 
 	<!-- Search section -->
 	<!-- <div class="search-form-section">
@@ -67,9 +114,9 @@
 		</div>
 	<?php endif ?>
 
-	<form method="post" action="php_code.php" >
-		<div class="input-group">
-      <input type="hidden" name="id" value="<?php echo $id; ?>">
+	<form method="post" >
+<input type="hidden" name="id" value="<?php echo $id; ?>">
+    <div class="input-group">
 			<label>Item</label>
 			<input type="text" name="item" value="<?php echo $item; ?>">
 		</div>

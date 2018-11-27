@@ -48,7 +48,7 @@ function getRecipe($api_keys, $query, $type, $number = 20) {
     $ings = json_decode($response1->raw_body)->instructions;
     // $inglines=$ings->
 
- $html .= "<li><img style='display: inlineBlock; width: 28%' src=${imgSrc}>${mealTitle}${ings}</li>";
+ $html .= "<li><img style='display: inlineBlock; width: 28%' src=${imgSrc}>${mealTitle}</li><li> ${ings}</li>";
   }
 
  $html .= "</div>";
@@ -68,9 +68,7 @@ function getRecipe($api_keys, $query, $type, $number = 20) {
 */
 
 
-if(isset($_POST['search'])){
-  $ingredient=$_POST['search'];
-}
+
 
 if(isset($_POST['select'])){
   $option=$_POST['select'];
@@ -116,7 +114,11 @@ if(isset($_POST['select'])){
 	</div>
 	<!-- Search section end -->
 
-<p> <?php echo getRecipe($api_keys, $ingredient, $option, 10);?> </p>
+<p> <?php
+if(isset($_POST['search'])){
+  $ingredient=$_POST['search'];
+   echo getRecipe($api_keys, $ingredient, $option, 5);
+}?> </p>
 
 	<!-- Recipes section end -->
 
