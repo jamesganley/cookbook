@@ -1,4 +1,18 @@
-<?php include_once __DIR__ . '/../inc/header.php'; ?>
+<?php
+  session_start();
+
+  if (!isset($_SESSION['username'])) {
+  	$_SESSION['msg'] = "You must log in first";
+  	header('location: home.php');
+  }
+  if (isset($_GET['logout'])) {
+  	session_destroy();
+  	unset($_SESSION['username']);
+  	header("location: home.php");
+  }
+?>
+<?php include_once __DIR__ . '/../inc/header.php';?>
+<?php include '../database.php';?>
 
 	<!-- Header section end -->
 <body>
@@ -20,11 +34,11 @@
 
 
 	<!-- Search section -->
-	<div class="search-form-section">
+	<!-- <div class="search-form-section">
 		<div class="sf-warp">
 			<div class="container">
 				<form class="big-search-form">
-					<select>
+					<! <select>
 						<option>All Recipes Categories</option>
 						<option>Pizza</option>
 						<option>Salads</option>
@@ -36,13 +50,45 @@
 						<option>Breakfast</option>
 						<option>Lunch</option>
 						<option>Dinner</option>
-					</select>
-					<input type="text" placeholder="Search Receipies">
+					</select> -->
+				<!--	<input type="text" placeholder="Search Receipies">
 					<button class="bsf-btn">Search</button>
 				</form>
 			</div>
 		</div>
-	</div>
+	</div> -->
+
+	<?php if (isset($_SESSION['message'])): ?>
+		<div class="msg">
+			<?php
+				echo $_SESSION['message'];
+				unset($_SESSION['message']);
+			?>
+		</div>
+	<?php endif ?>
+
+	<form method="post" action="php_code.php" >
+		<div class="input-group">
+      <input type="hidden" name="id" value="<?php echo $id; ?>">
+			<label>Item</label>
+			<input type="text" name="item" value="<?php echo $item; ?>">
+		</div>
+		<div class="input-group">
+			<label>Quantity</label>
+			<input type="text" name="quantity" value="<?php echo $quantity; ?>">
+		</div>
+		<div class="input-group">
+			<label>EXpiry Date</label>
+			<input type="text" name="expiry" value="<?php echo $expiry; ?>">
+		</div>
+		<div class="input-group">
+      <?php if ($update == true): ?>
+	<button class="btn" type="submit" name="update" style="background: #556B2F;" >update</button>
+<?php else: ?>
+	<button class="btn" type="submit" name="save" >Save</button>
+<?php endif ?>
+		</div>
+	</form>
 	<!-- Search section end -->
 
 
@@ -90,10 +136,3 @@
 
 
   <?php include_once __DIR__ . "/../inc/footer.php" ?>
-
-	<!--====== Javascripts & Jquery ======-->
-	<script src="js/jquery-3.2.1.min.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
-	<script src="js/main.js"></script>
-</body>
-</html>

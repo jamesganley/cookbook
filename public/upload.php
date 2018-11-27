@@ -60,11 +60,15 @@
 		<div class="input-group">
       <input type="hidden" name="id" value="<?php echo $id; ?>">
 			<label>Name</label>
-			<input type="text" name="name" value="<?php echo $name; ?>">
+			<input type="text" name="item" value="<?php echo $item; ?>">
 		</div>
 		<div class="input-group">
 			<label>Address</label>
-			<input type="text" name="address" value="<?php echo $address; ?>">
+			<input type="text" name="quantity" value="<?php echo $quantity; ?>">
+		</div>
+		<div class="input-group">
+			<label>Address</label>
+			<input type="text" name="expiry" value="<?php echo $expiry; ?>">
 		</div>
 		<div class="input-group">
       <?php if ($update == true): ?>
