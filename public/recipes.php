@@ -40,10 +40,15 @@ function getRecipe($api_keys, $query, $type, $number = 20) {
 
   foreach ($meals as $meal) {
     $mealTitle = $meal->title;
-    $mealid = $meal->id;
 
+    $mealid= $meal->id;
     $imgSrc = $baseUrl . $meal->image;
- $html .= "<li>${mealTitle} ${mealid}<img style='display: inlineBlock; width: 28%' src=${imgSrc}></li>";
+    $inguri="https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/${mealid}/information";
+    $response1 = Unirest\Request::get($inguri, $api_keys);
+    $ings = json_decode($response1->raw_body)->instructions;
+    // $inglines=$ings->
+
+ $html .= "<li><img style='display: inlineBlock; width: 28%' src=${imgSrc}>${mealTitle}${ings}</li>";
   }
 
  $html .= "</div>";
@@ -61,6 +66,7 @@ function getRecipe($api_keys, $query, $type, $number = 20) {
   )
 );
 */
+
 
 if(isset($_POST['search'])){
   $ingredient=$_POST['search'];
