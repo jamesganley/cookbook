@@ -28,23 +28,46 @@ function getRecipe($api_keys, $query, $type, $number = 20) {
   $response = Unirest\Request::get($endpoint, $api_keys);
   $meals = json_decode($response->raw_body)->results;
 
-  $html = "<ul>";
+  /*function getInstructions($api_keys, $id) {
+  $endpoint1 = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/"
+  $endpoint1 = "$id/analyzedInstructions?";
+  $response1 =  Unirest\Request::get($endpoint1, $api_keys);
+  $instructions = json_decode($response1->raw_body)->steps;
+}*/
+
+  $html = "<div>";
   $baseUrl="https://spoonacular.com/recipeImages/";
 
   foreach ($meals as $meal) {
     $mealTitle = $meal->title;
+    $mealid = $meal->id;
+
     $imgSrc = $baseUrl . $meal->image;
- $html .= "<li>${mealTitle} <img style='display: inlineBlock; width: 28%' src=${imgSrc}></li>";
+ $html .= "<li>${mealTitle} ${mealid}<img style='display: inlineBlock; width: 28%' src=${imgSrc}></li>";
   }
 
- $html .= "</ul>";
+ $html .= "</div>";
 
   return $html;
 
+  $option;
+  $type=$option;
+
 }
+/*$response = Unirest\Request::get("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/324694/analyzedInstructions?stepBreakdown=false",
+  array(
+    "X-Mashape-Key" => "ovPM3cb30mmsh7abxqslX3XQ9bgZp101Drfjsn5Nc5rjIn4UyA",
+    "X-Mashape-Host" => "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
+  )
+);
+*/
 
 if(isset($_POST['search'])){
   $ingredient=$_POST['search'];
+}
+
+if(isset($_POST['select'])){
+  $option=$_POST['select'];
 }
 
 // echo getRecipe($api_keys, "chicken", "breakfast", 10);
@@ -73,7 +96,7 @@ if(isset($_POST['search'])){
 		<div class="sf-warp">
 			<div class="container">
 				<form class="big-search-form" method="post" action="recipes.php">
-					<select>
+					<select name="select" method="post">
 						<option>All Ingredients</option>
 						<option>Breakfast</option>
 						<option>Lunch</option>
@@ -87,7 +110,7 @@ if(isset($_POST['search'])){
 	</div>
 	<!-- Search section end -->
 
-<p> <?php echo getRecipe($api_keys, $ingredient, "breakfast", 10);?> </p>
+<p> <?php echo getRecipe($api_keys, $ingredient, $option, 10);?> </p>
 
 	<!-- Recipes section end -->
 
