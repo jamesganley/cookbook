@@ -13,6 +13,43 @@
 ?>
 <?php include_once __DIR__ . '/../inc/header.php'; ?>
 
+<?php
+
+require_once 'src/Unirest.php';
+
+$api_keys = [
+  "X-Mashape-Key" => "ovPM3cb30mmsh7abxqslX3XQ9bgZp101Drfjsn5Nc5rjIn4UyA",
+  "X-Mashape-Host" => "spoonacular-recipe-food-nutrition-v1.p.mashape.com"
+];
+
+function getRecipe($api_keys, $query, $type, $number = 20) {
+  $endpoint = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/";
+  $endpoint .="search?number=${number}&offset=0&query=${query}&type=${type}";
+  $response = Unirest\Request::get($endpoint, $api_keys);
+  $meals = json_decode($response->raw_body)->results;
+
+  $html = "<ul>";
+  $baseUrl="https://spoonacular.com/recipeImages/";
+
+  foreach ($meals as $meal) {
+    $mealTitle = $meal->title;
+    $imgSrc = $baseUrl . $meal->image;
+ $html .= "<li>${mealTitle} <img style='display: inlineBlock; width: 28%' src=${imgSrc}></li>";
+  }
+
+ $html .= "</ul>";
+
+  return $html;
+
+}
+
+if(isset($_POST['search'])){
+  $ingredient=$_POST['search'];
+}
+
+// echo getRecipe($api_keys, "chicken", "breakfast", 10);
+
+?>
 	<!-- Header section end -->
 <body>
 	<!-- Page Preloder -->
@@ -35,21 +72,14 @@
 	<div class="search-form-section">
 		<div class="sf-warp">
 			<div class="container">
-				<form class="big-search-form">
-					<select>
-						<option>All Recipes Categories</option>
-						<option>Pizza</option>
-						<option>Salads</option>
-						<option>Desserts</option>
-						<option>Side Dishes</option>
-					</select>
+				<form class="big-search-form" method="post" action="recipes.php">
 					<select>
 						<option>All Ingredients</option>
 						<option>Breakfast</option>
 						<option>Lunch</option>
 						<option>Dinner</option>
 					</select>
-					<input type="text" placeholder="Search Receipies">
+					<input type="text" name="search" placeholder="Search Receipies">
 					<button class="bsf-btn">Search</button>
 				</form>
 			</div>
@@ -57,236 +87,8 @@
 	</div>
 	<!-- Search section end -->
 
+<p> <?php echo getRecipe($api_keys, $ingredient, "breakfast", 10);?> </p>
 
-	<!-- Recipes section -->
-	<section class="recipes-page spad">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-8">
-					<div class="section-title">
-						<h2>Latest recipes</h2>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="recipe-view">
-						<i class="fa fa-bars"></i>
-						<i class="fa fa-th active"></i>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-4 col-md-6">
-					<div class="recipe">
-						<img src="img/recipes/1.jpg" alt="">
-						<div class="recipe-info-warp">
-							<div class="recipe-info">
-								<h3>Traditional Pizza</h3>
-								<div class="rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star is-fade"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="recipe">
-						<img src="img/recipes/2.jpg" alt="">
-						<div class="recipe-info-warp">
-							<div class="recipe-info">
-								<h3>Italian home-made pasta</h3>
-								<div class="rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star is-fade"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="recipe">
-						<img src="img/recipes/3.jpg" alt="">
-						<div class="recipe-info-warp">
-							<div class="recipe-info">
-								<h3>Chesse Cake Tart</h3>
-								<div class="rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star is-fade"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="recipe">
-						<img src="img/recipes/4.jpg" alt="">
-						<div class="recipe-info-warp">
-							<div class="recipe-info">
-								<h3>Traditional Pizza</h3>
-								<div class="rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star is-fade"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="recipe">
-						<img src="img/recipes/5.jpg" alt="">
-						<div class="recipe-info-warp">
-							<div class="recipe-info">
-								<h3>Italian home-made pasta</h3>
-								<div class="rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star is-fade"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="recipe">
-						<img src="img/recipes/6.jpg" alt="">
-						<div class="recipe-info-warp">
-								<div class="recipe-info">
-								<h3>Chesse Cake Tart</h3>
-								<div class="rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star is-fade"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="recipe">
-						<img src="img/recipes/7.jpg" alt="">
-						<div class="recipe-info-warp">
-							<div class="recipe-info">
-								<h3>Traditional Pizza</h3>
-								<div class="rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star is-fade"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="recipe">
-						<img src="img/recipes/8.jpg" alt="">
-						<div class="recipe-info-warp">
-							<div class="recipe-info">
-								<h3>Italian home-made pasta</h3>
-								<div class="rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star is-fade"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="recipe">
-						<img src="img/recipes/9.jpg" alt="">
-						<div class="recipe-info-warp">
-								<div class="recipe-info">
-								<h3>Chesse Cake Tart</h3>
-								<div class="rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star is-fade"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="recipe">
-						<img src="img/recipes/10.jpg" alt="">
-						<div class="recipe-info-warp">
-							<div class="recipe-info">
-								<h3>Traditional Pizza</h3>
-								<div class="rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star is-fade"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="recipe">
-						<img src="img/recipes/11.jpg" alt="">
-						<div class="recipe-info-warp">
-							<div class="recipe-info">
-								<h3>Italian home-made pasta</h3>
-								<div class="rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star is-fade"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="recipe">
-						<img src="img/recipes/12.jpg" alt="">
-						<div class="recipe-info-warp">
-								<div class="recipe-info">
-								<h3>Chesse Cake Tart</h3>
-								<div class="rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star is-fade"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="site-pagination">
-				<span>01</span>
-				<a href="#">02</a>
-				<a href="#">03</a>
-			</div>
-		</div>
-	</section>
 	<!-- Recipes section end -->
 
 
