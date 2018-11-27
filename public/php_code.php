@@ -23,7 +23,24 @@
     $conn->query($result1);
     var_dump($result1);
 		$_SESSION['message'] = "Address saved";
-		header('location: crud.php');
+		header('location: upload.php');
 	}
+
+  if (isset($_POST['update'])) {
+	$id = $_POST['id'];
+	$name = $_POST['name'];
+	$address = $_POST['address'];
+
+	mysqli_query($conn, "UPDATE crud SET name='$name', address='$address' WHERE id=$id");
+	$_SESSION['message'] = "Address updated!";
+	header('location: upload.php');
+}
+if (isset($_GET['del'])) {
+	$id = $_GET['del'];
+	mysqli_query($conn, "DELETE FROM crud WHERE id=$id");
+	$_SESSION['message'] = "Address deleted!";
+	header('location: upload.php');
+}
+
 
 // ...
