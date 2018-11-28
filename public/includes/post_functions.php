@@ -118,7 +118,6 @@ function createPost($request_values)
 
 			$now = date('Y/m/d');
 			$user_id = $_SESSION["user_id"];
-			var_dump($_SESSION);
 			$query = "INSERT INTO posts (user_id, title, slug, image, body, published, created_at, updated_at)
 			VALUES('${user_id}', '${title}', '${post_slug}', '${featured_image}', '${body}', '${published}', '${now}', '${now}')";
 
@@ -176,20 +175,21 @@ function createPost($request_values)
 		if (empty($title)) { array_push($errors, "Post title is required"); }
 		if (empty($body)) { array_push($errors, "Post body is required"); }
 		// if new featured image has been provided
-		if (isset($_POST['featured_image'])) {
+
 			// Get image name
+
 		  	$featured_image = $_FILES['featured_image']['name'];
 		  	// image file directory
 		  	$target =  $_SERVER["DOCUMENT_ROOT"] . "/static/images/" . basename($featured_image);
 		  	if (!move_uploaded_file($_FILES['featured_image']['tmp_name'], $target)) {
 		  		array_push($errors, "Failed to upload image. Please check file settings for your server");
 		  	}
-		}
+
 
 		// register topic if there are no errors in the form
 		if (count($errors) == 0) {
 			$query = "UPDATE posts SET title='$title', slug='$post_slug', image='$featured_image', body='$body', published=$published, updated_at=now() WHERE id=$post_id";
-			// attach topic to post on post_topic table
+
 			if(mysqli_query($db, $query)){ // if post created successfully
 				if (isset($topic_id)) {
 					$inserted_post_id = mysqli_insert_id($db);

@@ -124,11 +124,11 @@
     		  </div>
     		  <div class="form-group">
     			     <label>Quantity</label>
-    			     <input type="text" name="quantity" value="<?php echo $quantity; ?>">
+    			     <input type="number" name="quantity" value="<?php echo $quantity; ?>">
     		  </div>
     		  <div class="form-group">
     			     <label>Expire Date of the Item</label>
-    			     <input type="text" name="expiry" value="<?php echo $expiry; ?>">
+    			     <input type="date" name="expiry" value="<?php echo $expiry; ?>">
     		 </div>
     		 <div class="form-group">
           <?php if ($update == true): ?>
