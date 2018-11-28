@@ -19,7 +19,6 @@ if (isset($_POST['save'])){
   // Author can only view their posts
   $user_id = $_SESSION['user_id'];
   $result1="INSERT INTO crud (user_id, item, quantity, expiry) VALUES ('$user_id', '$item', '$quantity', '$expiry')";
-  mysqli_query($db,$result1 );
   $db->query($result1);
   $_SESSION['message'] = "Address saved";
   header('location: about.php');

@@ -23,7 +23,7 @@
 
 		$record = mysqli_query($db, "SELECT * FROM crud WHERE id=$id");
 
-		if (count($record) == 1 ) {
+		if (!$record == NULL ) {
 			$n = mysqli_fetch_array($record);
 			$item = $n['item'];
 			$quantity = $n['quantity'];
@@ -113,29 +113,35 @@
 			?>
 		</div>
 	<?php endif ?>
+<div class="signup">
+  <div class="container">
+    <div class="signup-content">
+      <form method="post" >
+        <input type="hidden" name="id" value="<?php echo $id; ?>">
+          <div class="form-group">
+    			     <label>Item Name</label>
+    			     <input type="text" name="item" value="<?php echo $item; ?>">
+    		  </div>
+    		  <div class="form-group">
+    			     <label>Quantity</label>
+    			     <input type="text" name="quantity" value="<?php echo $quantity; ?>">
+    		  </div>
+    		  <div class="form-group">
+    			     <label>Expire Date of the Item</label>
+    			     <input type="text" name="expiry" value="<?php echo $expiry; ?>">
+    		 </div>
+    		 <div class="form-group">
+          <?php if ($update == true): ?>
+    	       <button class="btn" type="submit" name="update" style="background: #556B2F;" >update</button>
+          <?php else: ?>
+    	       <button class="btn" type="submit" name="save" >Save</button>
+          <?php endif ?>
+    		</div>
+    	</form>
+    </div>
+  </div>
+</div>
 
-	<form method="post" >
-<input type="hidden" name="id" value="<?php echo $id; ?>">
-    <div class="input-group">
-			<label>Item</label>
-			<input type="text" name="item" value="<?php echo $item; ?>">
-		</div>
-		<div class="input-group">
-			<label>Quantity</label>
-			<input type="text" name="quantity" value="<?php echo $quantity; ?>">
-		</div>
-		<div class="input-group">
-			<label>EXpiry Date</label>
-			<input type="text" name="expiry" value="<?php echo $expiry; ?>">
-		</div>
-		<div class="input-group">
-      <?php if ($update == true): ?>
-	<button class="btn" type="submit" name="update" style="background: #556B2F;" >update</button>
-<?php else: ?>
-	<button class="btn" type="submit" name="save" >Save</button>
-<?php endif ?>
-		</div>
-	</form>
 	<!-- Search section end -->
 
 

@@ -180,7 +180,27 @@
 		</div>
 	</section>
 	<!-- Recipes section end -->
-
+  <!-- Recipes section -->
+  <!-- <div class="container">
+    <div class="section-title">
+      <h2>Latest Community recipes</h2>
+    </div>
+    <div class="row">
+      <?php //foreach ($posts as $post): ?>
+        <div class="col-lg-4">
+          <div class="sp-blog-item">
+            <div class="blog-thubm parent">
+              <img src="<?php// echo 'static/images/' . $post['image']; ?>" alt="">
+            </div>
+            <div class="blog-text">
+              <span><?php //echo $post['title']; ?></span>
+              <a href="single_post.php?post-slug=<?php //echo $post['slug']; ?>" class="readmore"><i class="fa fa-angle-right"></i></a>
+            </div>
+          </div>
+        </div>
+    <?php //endforeach ?>
+    </div>
+  </div> -->
 
 	<!-- Footer widgets section -->
 	<section class="bottom-widgets-section spad">

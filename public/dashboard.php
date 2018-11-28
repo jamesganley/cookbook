@@ -19,32 +19,24 @@
 <body>
   <div class="container">
     <div class="section-title">
-      <h2>Latest recipes</h2>
+      <h2>Your Feed</h2>
     </div>
-
-    <?php foreach ($posts as $post): ?>
-      <div class="parent">
-        <div class="post" style="margin-left: 0px;">
-        <div class="recipe">
-          <img src="<?php echo 'static/images/' . $post['image']; ?>" class="post_image" alt="">
-
-          <a href="single_post.php?post-slug=<?php echo $post['slug']; ?>">
-          <div class="recipe-info-warp">
-            <div class="recipe-info">
-              <h3><?php echo $post['title'] ?></h3>
-              <div class="info">
-                <span class="read_more">Read more...</span>
-
-              </div>
+    <div class="row">
+      <?php foreach ($posts as $post): ?>
+        <div class="col-lg-4">
+          <div class="sp-blog-item">
+            <div class="blog-thubm parent">
+              <img src="<?php echo 'static/images/' . $post['image']; ?>" alt="">
+            </div>
+            <div class="blog-text">
+              <span><?php echo $post['title']; ?></span>
+              <a href="single_post.php?post-slug=<?php echo $post['slug']; ?>" class="readmore"><i class="fa fa-angle-right"></i></a>
             </div>
           </div>
-          </a>
         </div>
-      </div>
-
-    </div>
-    <div class="spacing"></div>
     <?php endforeach ?>
-</div>
+    </div>
+  </div>
 </body>
-</html>
+<!-- Review section end -->
+<?php include_once __DIR__ . "/../inc/footer.php" ?>

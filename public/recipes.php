@@ -12,71 +12,9 @@
   }
 ?>
 <?php include_once __DIR__ . '/../inc/header.php'; ?>
-
-<?php
-
-require_once 'src/Unirest.php';
-
-$api_keys = [
-  "X-Mashape-Key" => "ovPM3cb30mmsh7abxqslX3XQ9bgZp101Drfjsn5Nc5rjIn4UyA",
-  "X-Mashape-Host" => "spoonacular-recipe-food-nutrition-v1.p.mashape.com"
-];
-
-function getRecipe($api_keys, $query, $type, $number = 20) {
-  $endpoint = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/";
-  $endpoint .="search?number=${number}&offset=0&query=${query}&type=${type}";
-  $response = Unirest\Request::get($endpoint, $api_keys);
-  $meals = json_decode($response->raw_body)->results;
-
-  /*function getInstructions($api_keys, $id) {
-  $endpoint1 = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/"
-  $endpoint1 = "$id/analyzedInstructions?";
-  $response1 =  Unirest\Request::get($endpoint1, $api_keys);
-  $instructions = json_decode($response1->raw_body)->steps;
-}*/
-
-  $html = "<div>";
-  $baseUrl="https://spoonacular.com/recipeImages/";
-
-  foreach ($meals as $meal) {
-    $mealTitle = $meal->title;
-
-    $mealid= $meal->id;
-    $imgSrc = $baseUrl . $meal->image;
-    $inguri="https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/${mealid}/information";
-    $response1 = Unirest\Request::get($inguri, $api_keys);
-    $ings = json_decode($response1->raw_body)->instructions;
-    // $inglines=$ings->
-
- $html .= "<li><img style='display: inlineBlock; width: 28%' src=${imgSrc}>${mealTitle}</li><li> ${ings}</li>";
-  }
-
- $html .= "</div>";
-
-  return $html;
-
-  $option;
-  $type=$option;
-
-}
-/*$response = Unirest\Request::get("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/324694/analyzedInstructions?stepBreakdown=false",
-  array(
-    "X-Mashape-Key" => "ovPM3cb30mmsh7abxqslX3XQ9bgZp101Drfjsn5Nc5rjIn4UyA",
-    "X-Mashape-Host" => "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
-  )
-);
-*/
+<?php include 'includes/recipe_functions.php'; ?>
 
 
-
-
-if(isset($_POST['select'])){
-  $option=$_POST['select'];
-}
-
-// echo getRecipe($api_keys, "chicken", "breakfast", 10);
-
-?>
 	<!-- Header section end -->
 <body>
 	<!-- Page Preloder -->
@@ -114,11 +52,11 @@ if(isset($_POST['select'])){
 	</div>
 	<!-- Search section end -->
 
-<p> <?php
+<div> <?php
 if(isset($_POST['search'])){
   $ingredient=$_POST['search'];
    echo getRecipe($api_keys, $ingredient, $option, 5);
-}?> </p>
+}?> </div>
 
 	<!-- Recipes section end -->
 
