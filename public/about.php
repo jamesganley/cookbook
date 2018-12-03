@@ -42,9 +42,6 @@
 		<div class="loader"></div>
 	</div>
 
-
-
-
 	<!-- Hero section -->
 	<section class="page-top-section set-bg" data-setbg="img/page-top-bg.jpg">
 		<div class="container">
@@ -54,99 +51,97 @@
 	<!-- Hero section end -->
   <?php $user_id = $_SESSION['user_id']; $results = mysqli_query($db, "SELECT * FROM crud WHERE user_id=${user_id}"); ?>
 
-    <table>
-      <thead>
-        <tr>
-          <th>Item</th>
-          <th>Quantity</th>
-          <th>Expire Date</th>
-          <th colspan="2">Action</th>
-        </tr>
-      </thead>
-
-      <?php while ($row = mysqli_fetch_array($results)) { ?>
-        <tr>
-          <td><?php echo $row['item']; ?></td>
-          <td><?php echo $row['quantity']; ?></td>
-          <td><?php echo $row['expiry']; ?></td>
-
-          <td>
-            <a href="about.php?edit=<?php echo $row['id']; ?>" class="edit_btn" >Edit</a>
-          </td>
-          <td>
-            <a href="about.php?del=<?php echo $row['id']; ?>" class="del_btn">Delete</a>
-          </td>
-        </tr>
-      <?php } ?>
-    </table>
-
-	<!-- Search section -->
-	<!-- <div class="search-form-section">
-		<div class="sf-warp">
-			<div class="container">
-				<form class="big-search-form">
-					<! <select>
-						<option>All Recipes Categories</option>
-						<option>Pizza</option>
-						<option>Salads</option>
-						<option>Desserts</option>
-						<option>Side Dishes</option>
-					</select>
-					<select>
-						<option>All Ingredients</option>
-						<option>Breakfast</option>
-						<option>Lunch</option>
-						<option>Dinner</option>
-					</select> -->
-				<!--	<input type="text" placeholder="Search Receipies">
-					<button class="bsf-btn">Search</button>
-				</form>
-			</div>
-		</div>
-	</div> -->
-
-	<?php if (isset($_SESSION['message'])): ?>
-		<div class="msg">
-			<?php
-				echo $_SESSION['message'];
-				unset($_SESSION['message']);
-			?>
-		</div>
-	<?php endif ?>
-<div class="signup">
   <div class="container">
-    <div class="signup-content">
-      <form method="post" >
-        <input type="hidden" name="id" value="<?php echo $id; ?>">
+    <div class="row">
+      <div class="col-4">
+        <form class="fridgeForm" method="post">
+          <input type="hidden" name="id" value="<?php echo $id; ?>">
           <div class="form-group">
-    			     <label>Item Name</label>
-    			     <input type="text" name="item" value="<?php echo $item; ?>">
-    		  </div>
-    		  <div class="form-group">
-    			     <label>Quantity</label>
-    			     <input type="number" name="quantity" value="<?php echo $quantity; ?>">
-    		  </div>
-    		  <div class="form-group">
-    			     <label>Expire Date of the Item</label>
-    			     <input type="date" name="expiry" value="<?php echo $expiry; ?>">
-    		 </div>
-    		 <div class="form-group">
-          <?php if ($update == true): ?>
-    	       <button class="btn" type="submit" name="update" style="background: #556B2F;" >update</button>
-          <?php else: ?>
-    	       <button class="btn" type="submit" name="save" >Save</button>
-          <?php endif ?>
-    		</div>
-    	</form>
+            <label for="exampleInputEmail1">Item Name</label>
+            <input
+            name="item"
+            type="text"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            placeholder="Enter email"
+            value="<?php echo $item; ?>"
+            >
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Quantity</label>
+            <input
+              name="quantity"
+              type="number"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              placeholder="Enter email"
+              value="<?php echo $quantity; ?>"
+              >
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Expiry Date</label>
+            <input
+              name="expiry"
+              type="date"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              placeholder="Enter email"
+              value="<?php echo $expiry; ?>"
+            >
+          </div>
+
+          <div class="form-group fridge">
+            <?php if ($update == true): ?>
+              <button type="submit" class="btn btn-primary btn-block" name="update">Update</button>
+            <?php else: ?>
+              <button class="btn btn-primary btn-block" type="submit" name="save" >Add</button>
+            <?php endif ?>
+          </div>
+        </form>
+      </div>
+
+      <div class="col-8">
+        <table class="fridgeTable table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th>Item</th>
+              <th>Quantity</th>
+              <th>Expire Date</th>
+              <th>Action</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+
+          <tbody>
+          <?php
+          $count = 0;
+          while ($row = mysqli_fetch_array($results)) {
+            $count++;
+          ?>
+            <tr>
+              <th scope="row"><?php echo $count ?></th>
+              <td><?php echo $row['item']; ?></td>
+              <td><?php echo $row['quantity']; ?></td>
+              <td><?php echo $row['expiry']; ?></td>
+              <td>
+                <a href="about.php?edit=<?php echo $row['id']; ?>" class="edit_btn" >Edit</a>
+              </td>
+              <td>
+                <a href="about.php?del=<?php echo $row['id']; ?>" class="del_btn">Remove</a>
+              </td>
+            <?php } ?>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
-</div>
 
 	<!-- Search section end -->
-
-
-
-
 
 	<!-- Facts section -->
 	<section class="facts-section">
@@ -187,5 +182,4 @@
 	</section>
 	<!-- Facts section end -->
 
-
-  <?php include_once __DIR__ . "/../inc/footer.php" ?>
+	<?php include_once __DIR__ . "/../inc/footer.php" ?>
