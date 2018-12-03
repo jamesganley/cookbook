@@ -1,7 +1,7 @@
 <?php
+ 
 
 require_once 'src/Unirest.php';
-
 $api_keys = [
   "X-Mashape-Key" => "ovPM3cb30mmsh7abxqslX3XQ9bgZp101Drfjsn5Nc5rjIn4UyA",
   "X-Mashape-Host" => "spoonacular-recipe-food-nutrition-v1.p.mashape.com"
@@ -33,7 +33,8 @@ function getRecipe($api_keys, $query, $type, $number = 20) {
     $ings = json_decode($response->raw_body)->instructions;
     // $inglines=$ings->
 
- $html .= "<div class='container'><img style='display: inlineBlock; width: 28%' src=${imgSrc}><h3>${mealTitle}</h3><p> ${ings}</p></div>";
+ $html .= "<div class='container'>  <img style='display: inlineBlock; width: 28%' src=${imgSrc}><h3>${mealTitle}</h3> <p>	<button type='button' class='btn btn-info' data-toggle='collapse' data-target='#demo'>Read Review</button>
+							<div id='demo' class='collapse'> <p> ${ings}</p> </div> </p> </div>";
   }
 
  $html .= "</div>";
