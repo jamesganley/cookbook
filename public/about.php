@@ -1,6 +1,5 @@
 <?php
   session_start();
-
   if (!isset($_SESSION['username'])) {
   	$_SESSION['msg'] = "You must log in first";
   	header('location: home.php');
@@ -20,9 +19,7 @@
     global $db;
 		$id = $_GET['edit'];
 		$update = true;
-
 		$record = mysqli_query($db, "SELECT * FROM crud WHERE id=$id");
-
 		if (!$record == NULL ) {
 			$n = mysqli_fetch_array($record);
 			$item = $n['item'];
@@ -182,4 +179,4 @@
 	</section>
 	<!-- Facts section end -->
 
-	<?php include_once __DIR__ . "/../inc/footer.php" ?>
+<?php include_once __DIR__ . "/../inc/footer.php" ?>
