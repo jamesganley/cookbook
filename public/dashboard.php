@@ -14,7 +14,7 @@
 ?>
 <?php include_once __DIR__ . '/../inc/header.php'; ?>
 <?php include __DIR__ . "/../database.php"; ?>
-	<?php include 'includes/public_functions.php' ?>
+	<?php include 'includes/admin_functions.php' ?>
   <?php $posts = getPublishedPosts(); ?>
 <body>
   <div class="container">

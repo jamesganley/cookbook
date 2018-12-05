@@ -1,7 +1,7 @@
 
 <?php include_once __DIR__ . '/../inc/header.php'; ?>
 <?php include __DIR__ . "/../database.php"; ?>
-<?php include('includes/public_functions.php'); ?>
+<?php include('includes/admin_functions.php'); ?>
 <?php
 	if (isset($_GET['post-slug'])) {
 		$post = getPost($_GET['post-slug']);

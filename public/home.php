@@ -1,7 +1,7 @@
 
 <?php include 'mainheader.php'; ?>
 <?php include __DIR__ . "/../database.php"; ?>
-<?php include_once 'includes/public_functions.php' ?>
+<?php include_once 'includes/admin_functions.php' ?>
 
 <!-- Retrieve all posts from database  -->
 <?php $posts = getPublishedPosts(); ?>

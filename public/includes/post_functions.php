@@ -241,4 +241,5 @@ function togglePublishPost($post_id, $message)
 		exit(0);
 	}
 }
+
 ?>
