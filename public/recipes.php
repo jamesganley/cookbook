@@ -55,8 +55,9 @@
 <div> <?php
 if(isset($_POST['search'])){
   $ingredient=$_POST['search'];
-   echo getRecipe($api_keys, $ingredient, $option, 5);
-}?> </div>
+   echo getRecipe($api_keys, $ingredient, $option, 7);
+}
+?> </div>
 
 	<!-- Recipes section end -->
 
@@ -116,5 +117,10 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/main.js"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </body>
 </html>
