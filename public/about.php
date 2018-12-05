@@ -50,7 +50,7 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-4">
+      <div class="col-sm-4">
         <form class="fridgeForm" method="post">
           <input type="hidden" name="id" value="<?php echo $id; ?>">
           <div class="form-group">
@@ -61,7 +61,7 @@
             class="form-control"
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
-            placeholder="Enter email"
+            placeholder="E.G.: Steak"
             value="<?php echo $item; ?>"
             >
           </div>
@@ -73,7 +73,7 @@
               class="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
-              placeholder="Enter email"
+              placeholder=0
               value="<?php echo $quantity; ?>"
               >
           </div>
@@ -85,7 +85,7 @@
               class="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
-              placeholder="Enter email"
+              placeholder="01/01/2018"
               value="<?php echo $expiry; ?>"
             >
           </div>
@@ -100,7 +100,7 @@
         </form>
       </div>
 
-      <div class="col-8">
+      <div class="col-sm-8">
         <table class="fridgeTable table table-striped">
           <thead>
             <tr>
