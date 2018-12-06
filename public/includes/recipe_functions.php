@@ -42,8 +42,41 @@ function getRecipe($api_keys, $query, $type, $number) {
     $idname='demo'.$counter;
 
 
- $html .= "<div class='container'>  <img style='display: inlineBlock; width: 28%' src=${imgSrc}><h3>${mealTitle}</h3> <p>	<button type='button' class='btn btn-info' data-toggle='collapse' data-target='#{$idname}'>Read Recipe</button>
-							<div id={$idname} class='collapse'> <p> ${ings}${name}</p> </div> </p> </div>";
+ $html .= "<div class='col-lg-6 col-md-8 offset-lg-0 offset-md-2'>
+          <div class='review-item'>
+          <div class ='review-thumb set-bg' data-setbg=${imgSrc}>
+          <img src=${imgSrc}>
+          </div>
+          <div class='review-text'>
+          <h6>${mealTitle}</h6>
+          <button type='button' class='btn btn-primary' data-toggle='modal' data-target='#{$idname}'>
+          Read Recipe
+          </button>
+          <div class='modal fade' id='{$idname}' tabindex='-1' role='dialog' aria-labelledby='exampleModalLongTitle' aria-hidden='true'>
+            <div class='modal-dialog' role='document'>
+              <div class='modal-content'>
+                <div class='modal-header'>
+                  <h5 class='modal-title' id={$idname}>${mealTitle}</h5>
+                  <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                    <span aria-hidden='true'>&times;</span>
+                  </button>
+                </div>
+                <div class='modal-body'>
+                <img src=${imgSrc}>
+                <h4>Ingredients</h4>
+                ${name}
+                <h4>Instructions</h4>
+                ${ings}
+                </div>
+                <div class='modal-footer'>
+                  <button type='button' class='btn btn-primary' data-dismiss='modal'>Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+          </div>
+          </div>";
   }
 
  $html .= "</div>";
