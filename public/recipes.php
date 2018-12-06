@@ -17,6 +17,7 @@
 
 	<!-- Header section end -->
 <body>
+  <link rel="stylesheet" type="text/css" href="style.css">
 	<!-- Page Preloder -->
 	<div id="preloder">
 		<div class="loader"></div>
@@ -27,7 +28,7 @@
 	<!-- Hero section -->
 	<section class="page-top-section set-bg" data-setbg="img/page-top-bg.jpg">
 		<div class="container">
-			<h2>Recipe</h2>
+			<h2>Find a Recipe</h2>
 		</div>
 	</section>
 	<!-- Hero section end -->
@@ -44,7 +45,7 @@
 						<option>Lunch</option>
 						<option>Dinner</option>
 					</select>
-					<input type="text" name="search" placeholder="Search Receipies">
+					<input type="text" name="search" placeholder="Search Recipies">
 					<button class="bsf-btn">Search</button>
 				</form>
 			</div>
@@ -52,10 +53,13 @@
 	</div>
 	<!-- Search section end -->
 
+<br>
+<br>
+
 <div> <?php
 if(isset($_POST['search'])){
   $ingredient=$_POST['search'];
-   echo getRecipe($api_keys, $ingredient, $option, 7);
+   echo getRecipe($api_keys, $ingredient, $option, 6);
 }
 ?> </div>
 
@@ -114,6 +118,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
 
 	<!--====== Javascripts & Jquery ======-->
+
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/main.js"></script>

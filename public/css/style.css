@@ -58,6 +58,24 @@ p {
 	line-height: 2.1;
 }
 
+
+.rowid {
+	float: left;
+	display: table;
+	height:500px;
+  width:500px;
+  padding: 5px;
+}
+
+.btn {
+	color: #ff2a6b;
+}
+
+.rowid img{
+	height: 300px;
+	width: 300px;
+}
+
 img {
 	max-width: 100%;
 }
