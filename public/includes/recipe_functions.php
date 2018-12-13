@@ -13,14 +13,7 @@ function getRecipe($api_keys, $query, $type, $number) {
   $response = Unirest\Request::get($endpoint, $api_keys);
   $meals = json_decode($response->raw_body)->results;
   $counter=1;
-
-  /*function getInstructions($api_keys, $id) {
-  $endpoint1 = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/"
-  $endpoint1 = "$id/analyzedInstructions?";
-  $response =  Unirest\Request::get($endpoint1, $api_keys);
-  $instructions = json_decode($response->raw_body)->steps;
-}*/
-
+  $html2="";
   $html = "<div class='container'>";
   $baseUrl="https://spoonacular.com/recipeImages/";
 
@@ -35,19 +28,21 @@ function getRecipe($api_keys, $query, $type, $number) {
     $ingredientlines=json_decode($response->raw_body)->extendedIngredients;
     foreach ($ingredientlines as $key ) {
       $name=$key->name;
-
+      $html2 .="<li>${name}</li>";
     }
 
     // $inglines=$ings->
     $idname='demo'.$counter;
 
 
- $html .= "<div class='col-lg-6 col-md-8 offset-lg-0 offset-md-2'>
-          <div class='review-item'>
-          <div class ='review-thumb set-bg' data-setbg=${imgSrc}>
+ $html .= "
+          <div class='container'>
+          <div class='col-lg-6 col-md-8  offset-md-3'>
+          <div class='sp-blog-item'>
+          <div class ='blog-thubm'>
           <img src=${imgSrc}>
           </div>
-          <div class='review-text'>
+          <div class='blog-text'>
           <h6>${mealTitle}</h6>
           <button type='button' class='btn btn-primary' data-toggle='modal' data-target='#{$idname}'>
           Read Recipe
@@ -64,7 +59,7 @@ function getRecipe($api_keys, $query, $type, $number) {
                 <div class='modal-body'>
                 <img src=${imgSrc}>
                 <h4>Ingredients</h4>
-                ${name}
+                ${html2}
                 <h4>Instructions</h4>
                 ${ings}
                 </div>
@@ -76,10 +71,11 @@ function getRecipe($api_keys, $query, $type, $number) {
           </div>
           </div>
           </div>
+          </div>
           </div>";
   }
 
- $html .= "</div>";
+ $html .= "</div></br></br>";
 
   return $html;
 
@@ -87,16 +83,6 @@ function getRecipe($api_keys, $query, $type, $number) {
   $type=$option;
 
 }
-/*$response = Unirest\Request::get("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/324694/analyzedInstructions?stepBreakdown=false",
-  array(
-    "X-Mashape-Key" => "ovPM3cb30mmsh7abxqslX3XQ9bgZp101Drfjsn5Nc5rjIn4UyA",
-    "X-Mashape-Host" => "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
-  )
-);
-*/
-
-
-
 
 if(isset($_POST['select'])){
   $option=$_POST['select'];

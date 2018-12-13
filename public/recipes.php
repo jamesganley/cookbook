@@ -33,6 +33,8 @@
 	</section>
 	<!-- Hero section end -->
 
+  <br>
+  <br>
 
 	<!-- Search section -->
 	<div class="search-form-section">
@@ -46,7 +48,7 @@
 						<option>Dinner</option>
 					</select>
 					<input type="text" name="search" placeholder="Search Recipies">
-					<button class="bsf-btn">Search</button>
+					<button type="submit" name="button">Search</button>
 				</form>
 			</div>
 		</div>
@@ -62,6 +64,9 @@ if(isset($_POST['search'])){
    echo getRecipe($api_keys, $ingredient, $option, 6);
 }
 ?> </div>
+
+<br>
+<br>
 
 	<!-- Recipes section end -->
 

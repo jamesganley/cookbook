@@ -65,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			</table>
 
   <?php } else {
-  	echo "there is no food in your fridge";
+  	echo "There is currently no food in your fridge";
   }?>
 
 
