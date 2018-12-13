@@ -1,15 +1,6 @@
-/* =================================
-------------------------------------
-  Food Blog - Web Template
-  Version: 1.0
- ------------------------------------
- ====================================*/
-
-/*----------------------------------------*/
-/* Template default CSS
-/*----------------------------------------*/
-
-html,
+html{
+	scroll-behavior: smooth;
+}
 body {
 	height: 100%;
 	font-family: 'Poppins', sans-serif;
@@ -65,6 +56,14 @@ p {
 	height:500px;
   width:500px;
   padding: 5px;
+}
+
+.Recipes_btn {
+	background-color: #ff2a6b;
+}
+
+.Recipes_btn:active {
+	  background-color: #bdde64 !important;
 }
 
 .btn {
@@ -748,12 +747,12 @@ ol {
 
 .review-section {
 	padding: 65px 0;
-	background: #fdc856;
+	background: #DAD8D7;
 }
 
 .review-item {
 	overflow: hidden;
-	background: #fff;
+	background: #DAD8D7;
 }
 
 .review-item .review-thumb {
