@@ -78,14 +78,6 @@ function getRecipe($api_keys, $query, $type, $number) {
  $html .= "</div></br></br>";
 
   return $html;
-
-  $option;
-  $type=$option;
-
-}
-
-if(isset($_POST['select'])){
-  $option=$_POST['select'];
 }
 
 // echo getRecipe($api_keys, "chicken", "breakfast", 10);

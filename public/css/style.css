@@ -5,6 +5,7 @@ body {
 	height: 100%;
 	font-family: 'Poppins', sans-serif;
 	-webkit-font-smoothing: antialiased;
+	/* background-image: url("../images/signup-bg.jpg"); */
 	font-smoothing: antialiased;
 }
 

@@ -34,9 +34,9 @@
 <body>
 
 	<!-- Page Preloder -->
-	<!-- <div id="preloder">
+	<div id="preloder">
 		<div class="loader"></div>
-	</div> -->
+	</div>
 
 	<!-- Header section -->
 	<header class="header-section">
@@ -53,7 +53,7 @@
 		<div class="header-bottom">
 			<div class="container">
 				<a href="index.php" class="site-logo">
-					<img src="img/logo.jpg" alt="">
+					<img src="img/Logo.jpg" alt="">
 				</a>
 
 			</div>

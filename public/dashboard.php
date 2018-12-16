@@ -14,12 +14,13 @@
 ?>
 <?php include_once __DIR__ . '/../inc/header.php'; ?>
 <?php include __DIR__ . "/../database.php"; ?>
-	<?php include 'includes/admin_functions.php' ?>
-  <?php $posts = getPublishedPosts(); ?>
+  <?php include_once 'includes/post_functions.php' ?>
+  <?php $posts = getAllPosts(); ?>
 <body>
+
   <div class="container">
     <div class="section-title">
-      <h2>Your Feed</h2>
+      <h2>Your Posts</h2>
     </div>
     <div class="row">
       <?php foreach ($posts as $post): ?>
@@ -37,6 +38,7 @@
     <?php endforeach ?>
     </div>
   </div>
+    
 </body>
 <!-- Review section end -->
 <?php include_once __DIR__ . "/../inc/footer.php" ?>

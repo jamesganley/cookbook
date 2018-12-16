@@ -141,42 +141,7 @@
 	<!-- Search section end -->
 
 	<!-- Facts section -->
-	<section class="facts-section">
-		<div class="facts-warp">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-3 col-sm-6 fact-item">
-						<div class="fact-icon">
-							<img src="img/icon/1.png" alt="">
-						</div>
-						<h2>1287</h2>
-						<p>Amazing receipies</p>
-					</div>
-					<div class="col-lg-3 col-sm-6 fact-item">
-						<div class="fact-icon">
-							<img src="img/icon/2.png" alt="">
-						</div>
-						<h2>25</h2>
-						<p>Wine pairings</p>
-					</div>
-					<div class="col-lg-3 col-sm-6 fact-item">
-						<div class="fact-icon">
-							<img src="img/icon/3.png" alt="">
-						</div>
-						<h2>471</h2>
-						<p>Meat receipies</p>
-					</div>
-					<div class="col-lg-3 col-sm-6 fact-item">
-						<div class="fact-icon">
-							<img src="img/icon/4.png" alt="">
-						</div>
-						<h2>326</h2>
-						<p>Desert receipies</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+	
 	<!-- Facts section end -->
 
 <?php include_once __DIR__ . "/../inc/footer.php" ?>

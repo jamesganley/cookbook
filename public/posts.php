@@ -17,7 +17,9 @@
 
 <!-- Get all admin posts from DB -->
 <?php $posts = getAllPosts(); ?>
-<body>
+  <div class="container offset-md-1">
+
+
 		<!-- Display records from DB-->
 		<div class="table-div"  style="width: 80%;">
 			<!-- Display notification message -->
@@ -76,5 +78,6 @@
 				</table>
 			<?php endif ?>
 		</div>
+    </div>
 </body>
 </html>

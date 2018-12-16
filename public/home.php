@@ -2,9 +2,9 @@
 <?php include 'mainheader.php'; ?>
 <?php include __DIR__ . "/../database.php"; ?>
 <?php include_once 'includes/admin_functions.php' ?>
+<?php include 'includes/recipe_functions.php'; ?>
 
 <!-- Retrieve all posts from database  -->
-<?php $posts = getPublishedPosts(); ?>
 	<!-- Header section end -->
 
 
@@ -46,7 +46,7 @@
 							<h2>Amazing deserts</h2>
 							<ul>
 								<li>Easy to make</li>
-								<li>Step by Step Video Tutorial</li>
+								<li>Step by Step Tutorial</li>
 								<li>Gluten Free</li>
 								<li>Healty  Ingredients</li>
 							</ul>
@@ -57,265 +57,46 @@
 		</div>
 	</section>
 	<!--Community Recipes section -->
-
+	<!-- Hero section -->
+	<section class="page-top-section set-bg" data-setbg="img/page-top-bg.jpg">
 		<div class="container">
-			<div class="section-title">
-				<h2>Latest recipes</h2>
-			</div>
-			<div class="row">
-				<?php foreach ($posts as $post): ?>
-					<div class="col-lg-4">
-						<div class="sp-blog-item">
-							<div class="blog-thubm parent">
-								<img src="<?php echo 'static/images/' . $post['image']; ?>" alt="">
-							</div>
-							<div class="blog-text">
-								<span><?php echo $post['title']; ?></span>
-								<a href="single_post.php?post-slug=<?php echo $post['slug']; ?>" class="readmore"><i class="fa fa-angle-right"></i></a>
-							</div>
-						</div>
-					</div>
-			<?php endforeach ?>
-			</div>
-</div>
-	<!-- Recipes section end -->
-
-
-	<!-- Footer widgets section -->
-	<section class="bottom-widgets-section spad">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-4 col-md-6 ftw-warp">
-					<div class="section-title">
-						<h3>Top rated recipes</h3>
-					</div>
-					<ul class="sp-recipes-list">
-						<li>
-							<div class="rl-thumb set-bg" data-setbg="img/thumb/1.jpg"></div>
-							<div class="rl-info">
-								<span>March 14, 2018</span>
-								<h6>Italian pasta</h6>
-								<div class="rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star is-fade"></i>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="rl-thumb set-bg" data-setbg="img/thumb/2.jpg"></div>
-							<div class="rl-info">
-								<span>March 14, 2018</span>
-								<h6>French Onion Soup</h6>
-								<div class="rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star is-fade"></i>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="rl-thumb set-bg" data-setbg="img/thumb/3.jpg"></div>
-							<div class="rl-info">
-								<span>March 14, 2018</span>
-								<h6>Homemade  pasta</h6>
-								<div class="rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star is-fade"></i>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="rl-thumb set-bg" data-setbg="img/thumb/4.jpg"></div>
-							<div class="rl-info">
-								<span>March 14, 2018</span>
-								<h6>Onion Soup Gratinee</h6>
-								<div class="rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star is-fade"></i>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="rl-thumb set-bg" data-setbg="img/thumb/4.jpg"></div>
-							<div class="rl-info">
-								<span>March 14, 2018</span>
-								<h6>Feta Cheese Burgers</h6>
-								<div class="rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star is-fade"></i>
-								</div>
-							</div>
-						</li>
-					</ul>
-				</div>
-				<div class="col-lg-4 col-md-6 ftw-warp">
-					<div class="section-title">
-						<h3>Most liked recipes</h3>
-					</div>
-					<ul class="sp-recipes-list">
-						<li>
-							<div class="rl-thumb set-bg" data-setbg="img/thumb/6.jpg"></div>
-							<div class="rl-info">
-								<span>March 14, 2018</span>
-								<h6>Traditional Food</h6>
-								<div class="rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star is-fade"></i>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="rl-thumb set-bg" data-setbg="img/thumb/7.jpg"></div>
-							<div class="rl-info">
-								<span>March 14, 2018</span>
-								<h6>Baked Salmon</h6>
-								<div class="rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star is-fade"></i>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="rl-thumb set-bg" data-setbg="img/thumb/8.jpg"></div>
-							<div class="rl-info">
-								<span>March 14, 2018</span>
-								<h6>Deep Fried Fish</h6>
-								<div class="rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star is-fade"></i>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="rl-thumb set-bg" data-setbg="img/thumb/9.jpg"></div>
-							<div class="rl-info">
-								<span>March 14, 2018</span>
-								<h6>Raw Tomato Soup</h6>
-								<div class="rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star is-fade"></i>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="rl-thumb set-bg" data-setbg="img/thumb/10.jpg"></div>
-							<div class="rl-info">
-								<span>March 14, 2018</span>
-								<h6>Vegan Food</h6>
-								<div class="rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star is-fade"></i>
-								</div>
-							</div>
-						</li>
-					</ul>
-				</div>
-				<div class="col-lg-4">
-					<div class="sp-blog-item">
-						<div class="blog-thubm">
-							<img src="img/blog/1.jpg" alt="">
-							<div class="blog-date">
-								<span>May 04, 2018</span>
-							</div>
-						</div>
-						<div class="blog-text">
-							<h5>Italian restaurant Review</h5>
-							<span>By Maria Williams</span>
-							<p>Donec quam felis, ultricies nec, pellente sque eu, pretium quis, sem. Nulla conseq uat massa quis enim. </p>
-							<a href="#" class="comment">2 Comments</a>
-							<a href="#" class="readmore"><i class="fa fa-angle-right"></i></a>
-						</div>
-					</div>
-				</div>
-			</div>
+			<h2>Find a Recipe</h2>
 		</div>
 	</section>
-	<!-- Footer widgets section end -->
+	<!-- Hero section end -->
 
+  <br>
+  <br>
 
-	<!-- Review section end -->
-	<section class="review-section">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6 col-md-8 offset-lg-0 offset-md-2">
-					<div class="review-item">
-						<div class="review-thumb set-bg" data-setbg="img/thumb/11.jpg">
-							<div class="review-date">
-								<span>May 04, 2018</span>
-							</div>
-						</div>
-						<div class="review-text">
-							<span>March 14, 2018</span>
-							<h6>Feta Cheese Burgers</h6>
-							<div class="rating">
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star is-fade"></i>
-							</div>
-							<div class="author-meta">
-								<div class="author-pic set-bg" data-setbg="img/author.jpg"></div>
-								<p>By Janice Smith</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-6 col-md-8 offset-lg-0 offset-md-2">
-					<div class="review-item">
-						<div class="review-thumb set-bg" data-setbg="img/thumb/12.jpg">
-							<div class="review-date">
-								<span>May 04, 2018</span>
-							</div>
-						</div>
-						<div class="review-text">
-							<span>March 14, 2018</span>
-							<h6>Mozarella Pasta</h6>
-							<div class="rating">
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star is-fade"></i>
-							</div>
-							<div class="author-meta">
-								<div class="author-pic set-bg" data-setbg="img/author.jpg"></div>
-								<p>By Janice Smith</p>
-							</div>
-						</div>
-					</div>
-				</div>
+	<!-- Search section -->
+	<div class="search-form-section">
+		<div class="sf-warp">
+			<div class="container" >
+				<form method="post" action="home.php" style="background-color:#ff2a6b">
+          <div class="md-form mt-0">
+          <input class="form-control" name="search" type="text" placeholder="Search Recipes" aria-label="Search">
+          </div>
+					<button type="submit" name="button" class="btn btn-primary">Search</button>
+				</form>
 			</div>
 		</div>
-	</section>
+	</div>
+	<!-- Search section end -->
+
+<br>
+<br>
+
+<div> <?php
+if(isset($_POST['search'])){
+  $ingredient=$_POST['search'];
+   echo getRecipe($api_keys, $ingredient, 'all ingredients', 6);
+}
+?> </div>
+
+<br>
+<br>
+
+
+
 	<!-- Review section end -->
 	<?php include_once __DIR__ . "/../inc/footer.php" ?>

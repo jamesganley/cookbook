@@ -57,7 +57,7 @@
 					<li><a href="index.php">Home</a></li>
 					<li><a href="about.php">Whats in my Fridge</a></li>
 					<li><a href="recipes.php">Find a Recipe</a></li>
-					<li><a href="dashboard.php">Feed</a></li>
+					<li><a href="dashboard.php">Posts</a></li>
 					<li><a href="create_post.php">Create Post</a></li>
 					<li><a href="posts.php">Manage Post</a></li>
 					<?php  if (isset($_SESSION['username'])) : ?>
