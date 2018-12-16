@@ -48,7 +48,7 @@
 		<div class="header-bottom">
 			<div class="container">
 				<a href="index.php" class="site-logo">
-					<img src="img/logo.jpg" alt="">
+					<img src="img/Logo.jpg" alt="">
 				</a>
 				<div class="nav-switch">
 					<i class="fa fa-bars"></i>
