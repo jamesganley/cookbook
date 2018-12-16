@@ -1,7 +1,5 @@
 
 <!-- Footer section end -->
-
-
 <section class="facts-section">
 	<div class="facts-warp">
 		<div class="container">
@@ -38,6 +36,8 @@
 		</div>
 	</div>
 </section>
+
+
 
 	<!-- Gallery section -->
 	<div class="gallery">
